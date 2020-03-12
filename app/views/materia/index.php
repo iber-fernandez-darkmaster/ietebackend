@@ -33,61 +33,58 @@ $this->params['breadcrumbs'][] = $this->title;
                         </div>
                     </div>
 
-                                                                <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
-                    
+                    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
-                                            <?= GridView::widget([
-                            'dataProvider' => $dataProvider,
-                            'filterModel' => $searchModel,
-        'columns' => [
-                                ['class' => 'yii\grid\SerialColumn'],
-
-                                'nombre',
-
-                                [
-                                    'class' => 'kartik\grid\ActionColumn',
-                                    'urlCreator' => function($action, $model, $key, $index) { 
-                                            return Url::to([$action,'id'=>$key]);
+                    <?= GridView::widget([
+                        'dataProvider' => $dataProvider,
+                        'filterModel' => $searchModel,
+                        'columns' => [
+                            ['class' => 'yii\grid\SerialColumn'],
+                            'nombre',
+                            [
+                                'class' => 'kartik\grid\ActionColumn',
+                                'urlCreator' => function($action, $model, $key, $index) { 
+                                        return Url::to([$action,'id'=>$key]);
+                                },
+                                'width'=>'200px',
+                                'template'=>'{view} {update} {delete}',
+                                'buttons'=>[
+                                    'view' => function ($url, $model, $key) {
+                                        return Html::a('<i class="material-icons">visibility</i>', $url, [
+                                            'class'=>'btn btn-info btn-round btn-just-icon', 
+                                            'title'=>'Ver',
+                                            'aria-label'=>'Ver',
+                                            'data-pjax'=>0
+                                        ]);
                                     },
-                                    'width'=>'200px',
-                                    'template'=>'{view} {update} {delete}',
-                                    'buttons'=>[
-                                        'view' => function ($url, $model, $key) {
-                                            return Html::a('<i class="material-icons">visibility</i>', $url, [
-                                                'class'=>'btn btn-info btn-round btn-just-icon', 
-                                                'title'=>'Ver',
-                                                'aria-label'=>'Ver',
-                                                'data-pjax'=>0
-                                            ]);
-                                        },
-                                        'update' => function ($url, $model, $key) {
-                                            return Html::a('<i class="material-icons">edit</i>', $url, [
-                                                'class'=>'btn btn-warning btn-round btn-just-icon', 
-                                                'title'=>'Modificar',
-                                                'aria-label'=>'Modificar',
-                                                'data-pjax'=>0
-                                            ]);
-                                        },
-                                        'delete' => function ($url, $model, $key) {
-                                            return Html::a('<i class="material-icons">delete</i>', $url, [
-                                                'class'=>'btn btn-danger btn-round btn-just-icon', 
-                                                'title'=>'Eliminar',
-                                                'aria-label'=>'Eliminar',
-                                                'data-confirm'=>'¿ Esta seguro de eliminar este elemento ?',
-                                                'data-method'=>'post'
-                                            ]);
-                                        },
-                                    ]
-                                ],
+                                    'update' => function ($url, $model, $key) {
+                                        return Html::a('<i class="material-icons">edit</i>', $url, [
+                                            'class'=>'btn btn-warning btn-round btn-just-icon', 
+                                            'title'=>'Modificar',
+                                            'aria-label'=>'Modificar',
+                                            'data-pjax'=>0
+                                        ]);
+                                    },
+                                    'delete' => function ($url, $model, $key) {
+                                        return Html::a('<i class="material-icons">delete</i>', $url, [
+                                            'class'=>'btn btn-danger btn-round btn-just-icon', 
+                                            'title'=>'Eliminar',
+                                            'aria-label'=>'Eliminar',
+                                            'data-confirm'=>'¿ Esta seguro de eliminar este elemento ?',
+                                            'data-method'=>'post'
+                                        ]);
+                                    },
+                                ]
                             ],
-                            'bordered' => true,
-                            'striped' => false,
-                            'hover' => true,
-                            'condensed' => false,
-                            'responsive' => true,          
-                            'responsiveWrap' => false,                 
-                            'resizableColumns' => false,   
-                        ]); ?>
+                        ],
+                        'bordered' => true,
+                        'striped' => false,
+                        'hover' => true,
+                        'condensed' => false,
+                        'responsive' => true,          
+                        'responsiveWrap' => false,                 
+                        'resizableColumns' => false,   
+                    ]); ?>
                                         
                 </div>
             </div>

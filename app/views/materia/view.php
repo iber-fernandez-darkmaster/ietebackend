@@ -19,12 +19,20 @@ $this->params['breadcrumbs'][] = $this->title;
                     <h4><?= Html::encode($this->title) ?></h4>
                     <hr>
 
-                <?= DetailView::widget([
+                    <?= DetailView::widget([
                         'model' => $model,
                         'attributes' => [
                             'nombre',
                         ],
                     ]) ?>
+
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-right">
+                            <?=Html::a('<i class="material-icons">add</i> agregar examen', ['create-examen', 'id'=>$model->id], [
+                                'class'=>'btn btn-success',
+                            ])?>
+                        </div>
+                    </div>
 
                      <div class="form-group text-right">
                         <?= Html::a( "<i class='material-icons'>clear</i> ".'Cerrar', ['index'], ['class' => 'btn btn-default', 'title'=>'Cerrar',]) ?>
