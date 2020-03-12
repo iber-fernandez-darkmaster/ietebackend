@@ -1,0 +1,206 @@
+Array
+(
+    [0] => Array
+        (
+            [line] => 219
+            [file] => controllers\ProductoController.php
+            [message] => No docblock for element 'actionCategorias'
+        )
+
+    [1] => Array
+        (
+            [line] => 233
+            [file] => controllers\ProductoController.php
+            [message] => No docblock for element 'actionCiudades'
+        )
+
+    [2] => Array
+        (
+            [line] => 450
+            [file] => controllers\UserController.php
+            [message] => No docblock for element 'actionPerfil'
+        )
+
+    [3] => Array
+        (
+            [line] => 455
+            [file] => controllers\UserController.php
+            [message] => No docblock for element 'actionHola'
+        )
+
+    [4] => Array
+        (
+            [line] => 443
+            [file] => controllers\UserController.php
+            [message] => No docblock for element 'actionPerfil'
+        )
+
+    [5] => Array
+        (
+            [line] => 448
+            [file] => controllers\UserController.php
+            [message] => No docblock for element 'actionHola'
+        )
+
+    [6] => Array
+        (
+            [line] => 844
+            [file] => controllers\UserController.php
+            [message] => No docblock for element 'actionOcultarDato'
+        )
+
+    [7] => Array
+        (
+            [line] => 17
+            [file] => models\ChangePassword.php
+            [message] => No docblock for element '$oldPassword'
+        )
+
+    [8] => Array
+        (
+            [line] => 17
+            [file] => models\ChangePassword.php
+            [message] => No short description for element '$oldPassword'
+        )
+
+    [9] => Array
+        (
+            [line] => 18
+            [file] => models\ChangePassword.php
+            [message] => No docblock for element '$newPassword'
+        )
+
+    [10] => Array
+        (
+            [line] => 18
+            [file] => models\ChangePassword.php
+            [message] => No short description for element '$newPassword'
+        )
+
+    [11] => Array
+        (
+            [line] => 19
+            [file] => models\ChangePassword.php
+            [message] => No docblock for element '$retypePassword'
+        )
+
+    [12] => Array
+        (
+            [line] => 19
+            [file] => models\ChangePassword.php
+            [message] => No short description for element '$retypePassword'
+        )
+
+    [13] => Array
+        (
+            [line] => 24
+            [file] => models\ChangePassword.php
+            [message] => No docblock for element 'scenarios'
+        )
+
+    [14] => Array
+        (
+            [line] => 34
+            [file] => models\Signup.php
+            [message] => No docblock for element '$nombre_completo'
+        )
+
+    [15] => Array
+        (
+            [line] => 34
+            [file] => models\Signup.php
+            [message] => No short description for element '$nombre_completo'
+        )
+
+    [16] => Array
+        (
+            [line] => 35
+            [file] => models\Signup.php
+            [message] => No docblock for element '$telefono_celular'
+        )
+
+    [17] => Array
+        (
+            [line] => 35
+            [file] => models\Signup.php
+            [message] => No short description for element '$telefono_celular'
+        )
+
+    [18] => Array
+        (
+            [line] => 36
+            [file] => models\Signup.php
+            [message] => No docblock for element '$ciudad'
+        )
+
+    [19] => Array
+        (
+            [line] => 36
+            [file] => models\Signup.php
+            [message] => No short description for element '$ciudad'
+        )
+
+    [20] => Array
+        (
+            [line] => 87
+            [file] => models\Solicitud.php
+            [message] => No docblock for element 'getStrEstado'
+        )
+
+    [21] => Array
+        (
+            [line] => 235
+            [file] => models\User.php
+            [message] => No docblock for element 'userIdentifier'
+        )
+
+    [22] => Array
+        (
+            [line] => 235
+            [file] => models\User.php
+            [message] => No docblock for element 'userIdentifier'
+        )
+
+    [23] => Array
+        (
+            [line] => 257
+            [file] => models\User.php
+            [message] => No docblock for element 'getProductos'
+        )
+
+    [24] => Array
+        (
+            [line] => 235
+            [file] => models\User.php
+            [message] => No docblock for element 'userIdentifier'
+        )
+
+    [25] => Array
+        (
+            [line] => 257
+            [file] => models\User.php
+            [message] => No docblock for element 'getProductos'
+        )
+
+    [26] => Array
+        (
+            [line] => 261
+            [file] => models\User.php
+            [message] => No docblock for element 'getFavoritos'
+        )
+
+    [27] => Array
+        (
+            [line] => 265
+            [file] => models\User.php
+            [message] => No docblock for element 'getSolicitudes'
+        )
+
+    [28] => Array
+        (
+            [line] => 269
+            [file] => models\User.php
+            [message] => No docblock for element 'getSugerencias'
+        )
+
+)
