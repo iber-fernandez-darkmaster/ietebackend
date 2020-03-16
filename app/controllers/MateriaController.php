@@ -5,8 +5,6 @@ namespace app\controllers;
 use Yii;
 use app\models\Materia;
 use app\models\MateriaSearch;
-use app\models\Preguntas;
-use app\models\Examen;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -125,41 +123,5 @@ class MateriaController extends Controller
         }
 
         throw new NotFoundHttpException('The requested page does not exist.');
-    }
-    
-    public function actionCreateExamen($id){
-        $request = \Yii::$app->request;
-        $materia = Materia::findOne($id);
-        if(!$materia){
-            throw new NotFoundHttpException("No se encuentra el cliente");
-        }
-        $model = new Examen();
-        $model->materia_id = $id;
-        $model->fecha = date('Y-m-d');
-        $pregunta = new Preguntas();
-        $pregunta->respuesta_correcta = 0;
-
-        if ($request->isPost && $model->load($request->post())){
-            try {
-                $preguntas = $request->post('Examen')['preguntas'];
-                foreach ($preguntas as $key => $item) {
-                    
-                }
-            } catch (\Throwable $th) {
-            }
-        }
-
-        return $this->render('create_examen', [
-            'model'=>$model,
-            'pregunta'=>$pregunta,
-        ]);
-        
-    }
-
-    public function actionExamenes($id){
-        $materia = Materia::findOne();
-        if(!$materia){
-            throw new NotFoundHttpException("No se encuentra el cliente");
-        }
     }
 }

@@ -76,7 +76,7 @@ class EstudianteController extends Controller
     {
         $model = new Estudiante();
 
-        if ($model->load(Yii::$app->request->post())) {
+        if ($model->load(Yii::$app->request->post()) && $model->validate()) {
             $transaction = $model->getDb()->beginTransaction();
             try {
                 $datos = Yii::$app->request->post('Estudiante')['dni'];
