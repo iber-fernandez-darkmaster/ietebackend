@@ -74,15 +74,24 @@ class EstudianteController extends Controller
      */
     public function actionCreate()
     {
+        $request = \Yii::$app->request;
         $model = new Estudiante();
+        if (\Yii::$app->user->can('Responsable Centro')){
+            $model->centro_id = \Yii::$app->user->identity->centro_id;
+        }
+        // return $model->centro_id;
 
-        if ($model->load(Yii::$app->request->post()) && $model->validate()) {
+        // if ($model->load(Yii::$app->request->post()) && $model->validate()) {
+        if ($request->isPost && $model->load(Yii::$app->request->post()) ) {
             $transaction = $model->getDb()->beginTransaction();
             try {
                 $datos = Yii::$app->request->post('Estudiante')['dni'];
                 $model->password_hash = Yii::$app->security->generatePasswordHash($this->password($datos));
                 $model->status = 10;
                 $model->auth_key = Yii::$app->security->generateRandomString();
+                if ( !$model->validate() ){
+                    throw new \Exception(var_dump($model->errors));
+                }
                 $model->save();
                 $image = UploadedFile::getInstance($model, 'foto');
                 if ($image){
@@ -96,6 +105,7 @@ class EstudianteController extends Controller
                 return $this->redirect(['view', 'id' => $model->id]);
             } catch (\Throwable $e) {
                 $transaction->rollBack();
+                return var_dump($e->getMessage());
                 Yii::$app->session->setFlash('warning', $e->getMessage() );
             }
         }
@@ -126,9 +136,10 @@ class EstudianteController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
-
+        $auxfoto = $model->foto;
         if ($model->load(Yii::$app->request->post())) {
             $image = UploadedFile::getInstance($model, 'foto');
+            $model->foto = $auxfoto;
             if ($image){
                 if ( $model->foto != "" ){
                     $imageExist = Yii::getAlias('@imagePath').Estudiante::PATH.$model->foto;

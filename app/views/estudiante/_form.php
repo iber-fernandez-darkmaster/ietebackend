@@ -33,16 +33,19 @@ use app\models\Centro;
                 ],
             ]); 
         ?>
-    <?php }elseif (Yii::$app->user->can('Responsable Centro')){ ?>
-        <?= $form->field($model, 'centro_id')->widget(Select2::classname(), [
-                'data' => ArrayHelper::map(Centro::find()->where(['id' => Yii::$app->user->identity->centro_id])->all(), 'id', 'numero_id'),
-                'options' => ['placeholder' => 'Seleccione un centro ...'],
-                'pluginOptions' => [
-                    'allowClear' => true
-                ],
-            ]); 
-        ?>
-    <?php } ?>
+    <?php 
+    }
+    // elseif (Yii::$app->user->can('Responsable Centro')){ 
+    //     echo $form->field($model, 'centro_id')->widget(Select2::classname(), [
+    //         'data' => ArrayHelper::map(Centro::find()->where(['id' => Yii::$app->user->identity->centro_id])->all(), 'id', 'numero_id'),
+    //         'options' => ['placeholder' => 'Seleccione un centro ...'],
+    //         'pluginOptions' => [
+    //             'allowClear' => true
+    //         ],
+    //     ]); 
+    // } 
+    ?>
+
     <?=$form->field($model, 'foto')
         //->hint('Dimencion 500 x 600 px - tamaño maximo 8 MB')
         ->widget(FileInput::classname(), [

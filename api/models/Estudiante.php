@@ -43,6 +43,7 @@ class Estudiante extends \yii\db\ActiveRecord
             [['nombre_completo', 'dni'], 'string', 'max' => 50],
             [['auth_key'], 'string', 'max' => 32],
             [['foto'], 'string', 'max' => 100],
+            [['email'], 'unique'],
             [['password_hash', 'password_reset_token', 'email'], 'string', 'max' => 255],
             [['centro_id'], 'exist', 'skipOnError' => true, 'targetClass' => Centro::className(), 'targetAttribute' => ['centro_id' => 'id']],
         ];

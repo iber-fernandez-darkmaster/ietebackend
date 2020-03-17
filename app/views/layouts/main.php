@@ -57,7 +57,7 @@ AppAsset::register($this);
         <input type="hidden" id="path" value="<?=Yii::getAlias('@imageUrl').'/'?>">
         <div class="sidebar hidden-print" data-color="green" data-image="<?=Url::to(['@web/images/sidebar.jpg'])?>">
             <div class="logo text-center">
-                <?= Html::a(Html::img('@web/images/logo2.jpeg', ['width'=>'55px', 'height'=>'55px']), ['site/index'], ['class' => 'simple-text']) ?>
+                <?= Html::a(Html::img('@web/images/logo2.jpeg', ['width'=>'25px', 'height'=>'25px']), ['site/index'], ['class' => 'simple-text']) ?>
             </div>
 
             <div class="sidebar-wrapper">
