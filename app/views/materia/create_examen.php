@@ -23,7 +23,10 @@ $this->params['breadcrumbs'][] = $this->title;
                             <div class="panel-body">
                                 <div class="row">
                                     <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-                                        <?= $form->field($model, 'titulo')->textInput(['maxlength' => true]) ?>
+                                        <?= $form->field($model, 'titulo')->textInput([
+                                            'maxlength' => true,
+                                            'placeholder'=>'Titulo del examen',
+                                        ]) ?>
                                     </div>
                                     <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
                                         <?=$form->field($model, 'fecha')->widget(DatePicker::classname(), [
@@ -31,7 +34,8 @@ $this->params['breadcrumbs'][] = $this->title;
                                                 'placeholder' => 'Seleccionar fecha'
                                             ],
                                             'pluginOptions' => [
-                                                'autoclose'=>true
+                                                'autoclose'=>true,
+                                                'format' => 'yyyy-mm-dd'
                                             ]
                                         ])?>
                                     </div>
@@ -45,24 +49,50 @@ $this->params['breadcrumbs'][] = $this->title;
                             <div class="panel-body">
                                 <div class="row">
                                     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                                        <?= $form->field($pregunta, 'pregunta')->textInput(['maxlength' => true]) ?>
+                                        <?= $form->field($model, 'pregunta')->textInput([
+                                            'maxlength' => true,
+                                            'placeholder'=>'Ingresa tu pregunta',
+                                            'autocomplete'=>'off'
+                                        ]) ?>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
-                                        <?=$form->field($pregunta, 'respuesta_correcta')->radioList([
+                                        <?=$form->field($model, 'respuesta')->radioList([
                                             0 => 'Falso', 
                                             1 => 'Verdadero', 
                                         ])?>
                                     </div>
                                     <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4" style="padding-top:20px;">
-                                        <?= Html::a( "<i class='material-icons'>add</i> ".'Agregar', ['#'], [
+                                        <?= Html::a( "<i class='material-icons'>add</i> ".'Agregar', '#', [
                                             'class' => 'btn btn-primary',
-                                            'title'=>'Agregar',
+                                            'title'=>'Agregar pregunta',
                                             'id'=>'btn-agregar',
+                                            'onclick'=>'agregar()'
                                         ]) ?>
                                     </div>
                                 </div>
+
+                                <hr>
+                                
+                                <div class="row">
+                                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                        <table class="table table-hover" id="table-preguntas">
+                                            <thead>
+                                                <tr>
+                                                    <th>Pregunta</th>
+                                                    <th>Respuesta</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td class="text-center" colspan="3">No hay preguntas</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                
                             </div>
                         </div>
                         
@@ -74,7 +104,10 @@ $this->params['breadcrumbs'][] = $this->title;
                                 'class' => 'btn btn-default',
                                 'title'=>'Cerrar',
                             ]) ?>
-                            <?= Html::submitButton( "<i class='material-icons'>save</i> ".'Guardar', ['class' => $model->isNewRecord?'btn btn-success':'btn btn-warning']) ?>
+                            <?= Html::submitButton( "<i class='material-icons'>save</i> ".'Guardar', [
+                                'class' => $model->isNewRecord?'btn btn-success':'btn btn-warning',
+                                // 'onclick'=>'sendForm()', 
+                            ]) ?>
                         </div>
 
                     <?php ActiveForm::end(); ?>
@@ -83,3 +116,10 @@ $this->params['breadcrumbs'][] = $this->title;
         </div>
     </div>
 </div>
+
+
+<?php $this->registerJsFile('@web/js/materia/create_examen.js', [
+    'depends'=>[
+        \yii\web\JqueryAsset::className(),
+    ]
+]);?>

@@ -26,7 +26,7 @@ class Materia extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['nombre'], 'string', 'max' => 100],
+            [['nombre', 'pro'], 'string', 'max' => 100],
         ];
     }
 
@@ -39,5 +39,13 @@ class Materia extends \yii\db\ActiveRecord
             'id' => 'ID',
             'nombre' => 'Nombre',
         ];
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getExamenes()
+    {
+        return $this->hasMany(Examen::className(), ['materia_id' => 'id']);
     }
 }

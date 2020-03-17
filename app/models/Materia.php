@@ -40,4 +40,12 @@ class Materia extends \yii\db\ActiveRecord
             'nombre' => 'Nombre',
         ];
     }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getExamenes()
+    {
+        return $this->hasMany(Examen::className(), ['materia_id' => 'id']);
+    }
 }

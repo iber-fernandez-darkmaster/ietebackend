@@ -23,10 +23,10 @@ class AppAsset extends AssetBundle
     
     public $js = [
         //generador de codigo de barras ______________
-        YII_ENV_DEV ? 'js/plugins/jquery-barcode/jquery-barcode.js' : 'js/plugins/jquery-barcode/jquery-barcode.min.js',   
+        // YII_ENV_DEV ? 'js/plugins/jquery-barcode/jquery-barcode.js' : 'js/plugins/jquery-barcode/jquery-barcode.min.js',   
         // lienzzo camvas para html ________________
-        YII_ENV_DEV ? 'js/plugins/html2canvas/html2canvas.js' : 'js/plugins/html2canvas/html2canvas.min.js',   
-        'js/bootstrap-select.min.js'
+        // YII_ENV_DEV ? 'js/plugins/html2canvas/html2canvas.js' : 'js/plugins/html2canvas/html2canvas.min.js',   
+        // 'js/bootstrap-select.min.js'
     ];
 
     // public $jsOptions = [

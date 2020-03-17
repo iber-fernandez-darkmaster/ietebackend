@@ -14,7 +14,7 @@ $config = [
         '@bower' => '@vendor/bower-asset',
         '@npm'   => '@vendor/npm-asset',
         // para desarrollo
-        // '@imagePath' => '@app/web/uploads',
+        // '@imagePath' => '@app/web/uploads',aaaaaaaa
         // para producccion
         '@imagePath' => '@app/../uploads',
         '@imageUrl' => '/uploads'
@@ -23,9 +23,9 @@ $config = [
         'gridview' =>  [
             'class' => '\kartik\grid\Module'
         ],
-        'api' => [
-            'class' => 'app\modules\api\api',
-        ],
+        // 'api' => [
+        //     'class' => 'app\modules\api\api',
+        // ],
         'admin' => [
             'class' => 'app\components\mdmsoftrbac\Module',
             'layout' => 'top-menu',

@@ -4,6 +4,7 @@ namespace app\controllers;
 
 use Yii;
 use app\models\Materia;
+use app\models\Estudiante;
 use app\models\MateriaSearch;
 use app\models\Preguntas;
 use app\models\Examen;
@@ -52,10 +53,10 @@ class MateriaController extends Controller
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
      */
-    public function actionView($id)
-    {
+    public function actionView($id){
+        $model = $this->findModel($id);
         return $this->render('view', [
-            'model' => $this->findModel($id),
+            'model' =>$model,
         ]);
     }
 
@@ -136,24 +137,46 @@ class MateriaController extends Controller
         $model = new Examen();
         $model->materia_id = $id;
         $model->fecha = date('Y-m-d');
-        $pregunta = new Preguntas();
-        $pregunta->respuesta_correcta = 0;
+        $model->respuesta = 0;
 
-        if ($request->isPost && $model->load($request->post())){
+        if ($request->isPost){
+            $model->load($request->post());
             try {
-                $preguntas = $request->post('Examen')['preguntas'];
-                foreach ($preguntas as $key => $item) {
-                    
+                if(!$model->validate()){
+                    throw new Exception(\app\components\errors\ErrorsComponent::formatJustString($model->errors));
                 }
+                $model->save();
+
+                $preguntas = $request->post('preguntas');
+                $respuestas = $request->post('respuestas');
+                foreach ($preguntas as $key => $item) {
+                    $pregunta = new Preguntas();
+                    $pregunta->examen_id = $model->id;
+                    $pregunta->pregunta = $item;
+                    $pregunta->respuesta_correcta = $respuestas[$key];
+                    if(!$pregunta->save()){
+                        throw new Exception(\app\components\errors\ErrorsComponent::formatJustString($pregunta->errors));
+                    }
+                }
+                return $this->redirect(['ver-examen', 'id'=>$model->id]);
             } catch (\Throwable $th) {
+                return var_dump( $th->getMessage() );
             }
         }
 
         return $this->render('create_examen', [
             'model'=>$model,
-            'pregunta'=>$pregunta,
         ]);
-        
+    }
+
+    public function actionVerExamen($id){
+        $model = Examen::findOne($id);
+        if (!$model){
+            throw new NotFoundHttpException("el examen no existe");
+        }   
+        return $this->render('ver_examen', [
+            'model'=>$model,
+        ]);
     }
 
     public function actionExamenes($id){

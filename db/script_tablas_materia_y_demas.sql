@@ -52,3 +52,8 @@ CREATE TABLE `db_iete`.`respuestas` (
     `estudiante_id` INT NOT NULL, 
     PRIMARY KEY (`id`)
 ) ENGINE = InnoDB;
+
+
+
+
+ALTER TABLE `examen` CHANGE `materia_id` `materia_id` INT NOT NULL;
