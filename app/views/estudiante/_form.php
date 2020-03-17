@@ -1,6 +1,7 @@
 <?php
 
 use yii\helpers\Html;
+use yii\helpers\Url;
 use kartik\form\ActiveForm;
 use kartik\file\FileInput;
 use kartik\switchinput\SwitchInput;
@@ -23,14 +24,25 @@ use app\models\Centro;
 
     <?= $form->field($model, 'email')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'centro_id')->widget(Select2::classname(), [
-            'data' => ArrayHelper::map(Centro::find()->all(), 'id', 'numero_id'),
-            'options' => ['placeholder' => 'Seleccione un centro ...'],
-            'pluginOptions' => [
-                'allowClear' => true
-            ],
-        ]); 
-    ?>
+    <?php if (Yii::$app->user->can('Administrador')){ ?>    
+        <?= $form->field($model, 'centro_id')->widget(Select2::classname(), [
+                'data' => ArrayHelper::map(Centro::find()->all(), 'id', 'numero_id'),
+                'options' => ['placeholder' => 'Seleccione un centro ...'],
+                'pluginOptions' => [
+                    'allowClear' => true
+                ],
+            ]); 
+        ?>
+    <?php }elseif (Yii::$app->user->can('Responsable Centro')){ ?>
+        <?= $form->field($model, 'centro_id')->widget(Select2::classname(), [
+                'data' => ArrayHelper::map(Centro::find()->where(['id' => Yii::$app->user->identity->centro_id])->all(), 'id', 'numero_id'),
+                'options' => ['placeholder' => 'Seleccione un centro ...'],
+                'pluginOptions' => [
+                    'allowClear' => true
+                ],
+            ]); 
+        ?>
+    <?php } ?>
     <?=$form->field($model, 'foto')
         //->hint('Dimencion 500 x 600 px - tamaño maximo 8 MB')
         ->widget(FileInput::classname(), [

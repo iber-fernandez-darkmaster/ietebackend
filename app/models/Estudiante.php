@@ -15,9 +15,8 @@ use Yii;
  * @property string $password_reset_token
  * @property string $email
  * @property int $centro_id
+ * @property string $foto
  * @property int $status
- * @property int $created_at
- * @property int $updated_at
  *
  * @property Centro $centro
  */
@@ -42,8 +41,9 @@ class Estudiante extends \yii\db\ActiveRecord
             [['centro_id', 'status'], 'integer'],
             [['nombre_completo', 'dni'], 'string', 'max' => 50],
             [['auth_key'], 'string', 'max' => 32],
-            [['foto'], 'string', 'max' => 100],
             [['password_hash', 'password_reset_token', 'email'], 'string', 'max' => 255],
+            [['foto'], 'string', 'max' => 100],
+            [['email'], 'unique'],
             [['centro_id'], 'exist', 'skipOnError' => true, 'targetClass' => Centro::className(), 'targetAttribute' => ['centro_id' => 'id']],
         ];
     }
@@ -61,11 +61,9 @@ class Estudiante extends \yii\db\ActiveRecord
             'password_hash' => 'Password Hash',
             'password_reset_token' => 'Password Reset Token',
             'email' => 'Email',
-            'centro_id' => 'Centro',
-            'status' => 'Status',
-            'created_at' => 'Created At',
-            'updated_at' => 'Updated At',
+            'centro_id' => 'Centro ID',
             'foto' => 'Foto',
+            'status' => 'Status',
         ];
     }
 
@@ -75,9 +73,5 @@ class Estudiante extends \yii\db\ActiveRecord
     public function getCentro()
     {
         return $this->hasOne(Centro::className(), ['id' => 'centro_id']);
-    }
-    public function setPassword($password)
-    {
-        $this->password_hash = Yii::$app->security->generatePasswordHash($password);
     }
 }

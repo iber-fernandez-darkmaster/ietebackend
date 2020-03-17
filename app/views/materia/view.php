@@ -19,7 +19,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     <h4><?= Html::encode($this->title) ?></h4>
                     <hr>
 
-                    <?= DetailView::widget([
+                <?= DetailView::widget([
                         'model' => $model,
                         'attributes' => [
                             'nombre',
