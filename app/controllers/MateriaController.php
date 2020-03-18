@@ -185,4 +185,48 @@ class MateriaController extends Controller
             throw new NotFoundHttpException("No se encuentra el cliente");
         }
     }
+
+    public function actionUpdateExamen($id){
+        $request = \Yii::$app->request;
+        $model = Examen::findOne($id);
+        if (!$model){
+            throw new \yii\web\NotFoundHttpException("El examen no existe");
+        }
+        if ($request->isPost && $model->load($request->post())){
+            try {
+                if (!$model->save()){
+                    throw new Exception("Hubo un incomveniente con el examen");
+                }
+                return $this->redirect(['view', 'id'=>$model->materia_id]);
+            } catch (\Throwable $th) {
+                \Yii::$app->session->setFlash('warning', $th->getMessage());
+            }
+        }
+
+        return $this->render('update_examen',[
+            'model'=>$model,
+        ]);
+    }
+    
+    public function actionUpdatePregunta($preg){
+        $request = \Yii::$app->request;
+        $model = Preguntas::findOne($preg);
+        if (!$model){
+            throw new \yii\web\NotFoundHttpException("La Pregunta no existe");
+        }
+        if ($request->isPost && $model->load($request->post())){
+            try {
+                if (!$model->save()){
+                    throw new Exception("Hubo un incomveniente con el examen");
+                }
+                return $this->redirect(['ver-examen', 'id'=>$model->examen_id]);
+            } catch (\Throwable $th) {
+                \Yii::$app->session->setFlash('warning', $th->getMessage());
+            }
+        }
+
+        return $this->render('update_pregunta',[
+            'model'=>$model,
+        ]);
+    }
 }

@@ -34,10 +34,23 @@ $this->params['breadcrumbs'][] = $this->title;
                     
                     <div class="panel panel-default">
                         <div class="panel-body">
-                            <?php foreach ($model->preguntas as $key => $pregunta) {
-                                echo '<b>¿ '.$pregunta->pregunta.' ?</b><br>';
-                                echo $pregunta->strRespuesta.'<br>';
-                            } ?>
+                            <?php foreach ($model->preguntas as $key => $pregunta) { ?>
+                                
+                                <div class="row">
+                                    <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 text-right">
+                                        <?= Html::a('<i class="material-icons">edit</i>', ['update-pregunta', 'preg'=>$pregunta->id], [
+                                            'class'=>'text-warning',
+                                            'title'=>'Modificar la pregunta'
+                                        ])?>
+                                    </div>
+                                    <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8 text-righ">
+                                        <b>¿  <?=$pregunta->pregunta?>  ?</b><br>
+                                        <?= $pregunta->strRespuesta?> <br>
+                                        </p>
+                                    </div>
+                                </div>
+                                
+                            <?php } ?>
                         </div>
                     </div>
                     

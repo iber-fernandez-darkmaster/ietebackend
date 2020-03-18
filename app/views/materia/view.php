@@ -46,24 +46,34 @@ $this->params['breadcrumbs'][] = $this->title;
                                         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                                             <table class="table">
                                                 <tbody>
-                                                    <?php foreach ($model->examenes as $key => $examen) { ?>
+                                                    <?php if (count($model->examenes) > 0){ ?>
+                                                        <?php foreach ($model->examenes as $key => $examen) { ?>
+                                                            <tr>
+                                                                <td>
+                                                                    <p>
+                                                                        <?= '<b>'.$examen->titulo.'</b>' ?>
+                                                                    </p>
+                                                                </td>
+                                                                <td>
+                                                                    <span class="label label-info">
+                                                                        <?= \Yii::$app->formatter->asDate($examen->fecha, 'medium') ?>
+                                                                    </span>
+                                                                </td>
+                                                                <td>
+                                                                    <?=Html::a('<i class="material-icons">visibility</i>', ['ver-examen', 'id'=>$examen->id], [
+                                                                        'class'=>'btn btn-info btn-round btn-just-icon',
+                                                                        'title'=>'Ver preguntas de este examen'
+                                                                    ])?>
+                                                                    <?=Html::a('<i class="material-icons">edit</i>', ['update-examen', 'id'=>$examen->id], [
+                                                                        'class'=>'btn btn-warning btn-round btn-just-icon',
+                                                                        'title'=>'Modificar titulo o fecha'
+                                                                    ])?>
+                                                                </td>
+                                                            </tr>
+                                                        <?php } ?>
+                                                    <?php }else{ ?>
                                                         <tr>
-                                                            <td>
-                                                                <p>
-                                                                    <?= '<b>'.$examen->titulo.'</b>' ?>
-                                                                </p>
-                                                            </td>
-                                                            <td>
-                                                                <span class="label label-info">
-                                                                    <?= \Yii::$app->formatter->asDate($examen->fecha, 'medium') ?>
-                                                                </span>
-                                                            </td>
-                                                            <td>
-                                                                <?=Html::a('<i class="material-icons">visibility</i>', ['ver-examen', 'id'=>$examen->id], [
-                                                                    'class'=>'btn btn-info btn-round btn-just-icon',
-                                                                    'title'=>'Ver preguntas de este examen'
-                                                                ])?>
-                                                            </td>
+                                                            <td rowspam="2" class="text-center">No tiene examenes</td>
                                                         </tr>
                                                     <?php } ?>
                                                 </tbody>

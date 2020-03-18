@@ -74,4 +74,28 @@ class Estudiante extends \yii\db\ActiveRecord
     {
         return $this->hasOne(Centro::className(), ['id' => 'centro_id']);
     }
+
+    // /**
+    //  * @return \yii\db\ActiveQuery
+    //  */
+    // public function getExamenes(){
+    //     return $this->hasMany(Examen::className(), ['estudiante_id' => 'id']);
+    // }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getExamenes(){
+        $respuestas = Respuestas::find()
+            ->joinWith('pregunta')
+            ->where([
+                'respuestas.estudiante_id'=>$this->id,
+            ])
+            ->asArray()
+            ->all();
+        $preguntas = Preguntas::findAll( array_unique(\yii\helpers\ArrayHelper::getColumn($respuestas, 'pregunta_id')) );
+        
+        $examenes = Examen::findAll( array_unique(\yii\helpers\ArrayHelper::getColumn($preguntas, 'examen_id')) );
+        return $examenes;
+    }
 }

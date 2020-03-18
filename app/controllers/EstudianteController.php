@@ -5,10 +5,14 @@ namespace app\controllers;
 use Yii;
 use app\models\Estudiante;
 use app\models\EstudianteSearch;
+use app\models\Respuestas;
+use app\models\Examen;
+use app\models\Preguntas;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use yii\web\UploadedFile;
+use yii\helpers\ArrayHelper;
 
 /**
  * EstudianteController implements the CRUD actions for Estudiante model.
@@ -62,8 +66,36 @@ class EstudianteController extends Controller
      */
     public function actionView($id)
     {
+        $model = $this->findModel($id);
+
         return $this->render('view', [
-            'model' => $this->findModel($id),
+            'model' => $model,
+            'examenes' => $model->examenes,
+        ]);
+    }
+
+    public function actionVerExamen($pEx, $pEst){
+        $examen = Examen::findOne($pEx);
+        if (!$examen){
+            throw new \yii\web\NotFoundHttpException("El examen no existe");
+        }
+        $estudiante = Estudiante::findOne($pEst);
+        if (!$estudiante){
+            throw new \yii\web\NotFoundHttpException("El estudiante no existe");
+        }
+        $respuestasEstudiante = Respuestas::find()
+            ->joinWith('pregunta')
+            ->where([
+                'respuestas.estudiante_id'=>$estudiante->id,
+                'preguntas.examen_id'=>$examen->id,
+            ])
+            ->all();
+        // return var_dump($respuestasEstudiante);
+                
+        return $this->render('ver_examen', [
+            'examen' => $examen,
+            'estudiante' => $estudiante,
+            'respuestasEstudiante' => $respuestasEstudiante,
         ]);
     }
 

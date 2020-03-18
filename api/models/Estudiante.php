@@ -89,4 +89,21 @@ class Estudiante extends \yii\db\ActiveRecord
         }
         return null;
     }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getExamenes(){
+        $respuestas = Respuestas::find()
+            ->joinWith('pregunta')
+            ->where([
+                'respuestas.estudiante_id'=>$this->id,
+            ])
+            ->asArray()
+            ->all();
+        $preguntas = Preguntas::findAll( array_unique(\yii\helpers\ArrayHelper::getColumn($respuestas, 'pregunta_id')) );
+        
+        $examenes = Examen::findAll( array_unique(\yii\helpers\ArrayHelper::getColumn($preguntas, 'examen_id')) );
+        return $examenes;
+    }
 }

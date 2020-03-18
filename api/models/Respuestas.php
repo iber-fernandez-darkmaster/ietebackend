@@ -63,4 +63,8 @@ class Respuestas extends \yii\db\ActiveRecord
     {
         return $this->hasOne(Estudiante::className(), ['id' => 'estudiante_id']);
     }
+
+    public function getStrRespuesta(){
+        return $this->respuesta==1?'Verdadero':'Falso';
+    }
 }

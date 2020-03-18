@@ -11,6 +11,7 @@ use app\models\Materia;
 use app\models\Estudiante;
 use app\models\Examen;
 use app\models\Preguntas;
+use app\models\Respuestas;
 
 use yii\web\NotFoundHttpException;;
 use yii\web\ForbiddenHttpException;
@@ -76,6 +77,7 @@ class MateriaController extends Controller
                     'materias' => ['get'],
                     'examenes' => ['get'],
                     'preguntas' => ['get'],
+                    'register-respuestas' => ['post'],
                 ],
             ],
         ];
@@ -217,54 +219,92 @@ class MateriaController extends Controller
      * `body`: <br>
      *     {
      *         "respuestas":[
-     *              "pregunta_id": "",  // integer
-     *              "respuesta":"", // integer on or off where on is 1 and off is 0
+     *              {
+     *                  "pregunta_id": 1,  // integer
+     *                  "respuesta":"on", // integer on or off where on is 1 and off is 0
+     *              },
      *         ]
      *     }
      * @param int $examen id del examen
      * @param int $estudiante id del estudiante
      * @return JSON Ejemplo del resultado:
-     *     [
-     *         {
-     *             "id": 7,
-     *             "examen_id": 4,
-     *             "examen": {
-     *                 "id": 4,
-     *                 "materia_id": 1,
-     *                 "fecha": "2020-03-17",
-     *                 "titulo": "sasasasa"
-     *             },
-     *             "pregunta": "dsadsa",
-     *             "respuesta_correcta": 0,
-     *             "str_respuesta_correcta": "Falso"
-     *         },
-     *         {
-     *             "id": 10,
-     *             "examen_id": 4,
-     *             "examen": {
-     *                 "id": 4,
-     *                 "materia_id": 1,
-     *                 "fecha": "2020-03-17",
-     *                 "titulo": "sasasasa"
-     *             },
-     *             "pregunta": "dsadsa",
-     *             "respuesta_correcta": 1,
-     *             "str_respuesta_correcta": "Verdadero"
-     *         }
-     *     ]
+     *      [
+     *          {
+     *              "id": 21,
+     *              "estudiante_id": 8,
+     *              "estudiante": {
+     *                  "id": 8,
+     *                  "nombre_completo": "sandra",
+     *                  "dni": "222333",
+     *                  "auth_key": "wMevoecbpbP8Otmx5O0oDsTQUu9AJ2_O",
+     *                  "password_hash": "$2y$13$rIBOAsgt0mztQWwkBY09fu7E9k0pOXerBJJOdNA389.6nhEOZ/q7e",
+     *                  "password_reset_token": null,
+     *                  "email": "sandra@sandra.com",
+     *                  "centro_id": 2,
+     *                  "foto": "estudiante_8200317135550.jpg",
+     *                  "status": 10
+     *              },
+     *              "pregunta_id": 1,
+     *              "pregunta": {
+     *                  "id": 1,
+     *                  "examen_id": 1,
+     *                  "pregunta": "cru es tu villano favorito",
+     *                  "respuesta_correcta": 1
+     *              },
+     *              "respuesta": 1
+     *          },
+     *      ]
      */
-    public function actionRegisterRespuestas($id){
+    public function actionRegisterRespuestas($examen, $estudiante){
         $request = \Yii::$app->request;
-        $examen = Examen::findOne($id);
-        if (!$examen){
+        $mdExamen = Examen::findOne($examen);
+        if (!$mdExamen){
             throw new NotFoundHttpException("El examen no existe");
+        }
+        $mdEstudiante = Estudiante::findOne($estudiante);
+        if (!$mdEstudiante){
+            throw new NotFoundHttpException("El estudiante no existe");
         }
         $respuestas = $request->post('respuestas'); 
 
         try {
-            
-        } catch (\Throwable $th) {
-            //throw $th;
+            $transaction = $mdExamen->getDb()->beginTransaction();
+            foreach ($respuestas as $key => $item) {
+                $respuesta = new Respuestas();
+                $respuesta->estudiante_id = $mdEstudiante->id;
+                $respuesta->pregunta_id = $item['pregunta_id'];
+                $respuesta->respuesta = $item['respuesta']=='on'?1:0;
+                if (!$respuesta->save()){
+                    throw new \Exception( \app\components\errors\ErrorsComponent::formatJustString($respuesta->errors) );
+                }
+            }
+            $transaction->commit();
+
+            $respuestasEstudiante = Respuestas::find()
+                ->joinWith('pregunta')
+                ->where([
+                    'respuestas.estudiante_id'=>$mdEstudiante->id,
+                    'preguntas.examen_id'=>$mdExamen->id,
+                ])
+                ->all();
+
+            return ArrayHelper::toArray($respuestasEstudiante, [
+                Respuestas::className() => [
+                    'id',
+                    'estudiante_id',
+                    'estudiante'=>function($model){
+                        return $model->estudiante;
+                    },
+                    'pregunta_id',
+                    'pregunta'=>function($model){
+                        return $model->pregunta;
+                    },
+                    'respuesta',
+                ],
+            ]);
+        } catch (\Throwable $e) {
+            $transaction->rollBack();
+            throw new UnprocessableEntityHttpException( $e->getMessage() );
         }
     }
 }
