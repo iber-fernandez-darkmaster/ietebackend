@@ -44,6 +44,7 @@ class Estudiante extends \yii\db\ActiveRecord
             [['password_hash', 'password_reset_token', 'email'], 'string', 'max' => 255],
             [['foto'], 'string', 'max' => 100],
             [['email'], 'unique'],
+            [['estado'], 'string'],
             [['centro_id'], 'exist', 'skipOnError' => true, 'targetClass' => Centro::className(), 'targetAttribute' => ['centro_id' => 'id']],
         ];
     }
@@ -64,6 +65,7 @@ class Estudiante extends \yii\db\ActiveRecord
             'centro_id' => 'Centro ID',
             'foto' => 'Foto',
             'status' => 'Status',
+            'estado'=>'Estado',
         ];
     }
 

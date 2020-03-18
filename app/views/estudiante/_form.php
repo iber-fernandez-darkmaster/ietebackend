@@ -45,6 +45,20 @@ use app\models\Centro;
     //     ]); 
     // } 
     ?>
+     <?php if (Yii::$app->user->can('Administrador')){ ?>    
+        <?= $form->field($model, 'estado')->widget(Select2::classname(), [
+                'data' => [
+                    'Activo' => 'Activo',
+                    'Inactivo' => 'Inactivo',
+                ],
+                'options' => ['placeholder' => 'Seleccione un estado ...'],
+                'pluginOptions' => [
+                    'allowClear' => true
+                ],
+            ]); 
+        ?>
+    <?php 
+    }?>
 
     <?=$form->field($model, 'foto')
         //->hint('Dimencion 500 x 600 px - tamaño maximo 8 MB')
