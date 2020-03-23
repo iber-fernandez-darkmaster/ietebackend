@@ -212,7 +212,7 @@ class MateriaController extends Controller
     /**
      * Registrar respuestas de un examen.
      * 
-     * `Url`: /materia/register-respuestas?examen=[id del examen]&estudiante=[id del estudiante] <br>
+     * `Url`: /materia/register-respuestas?estudiante=[id del estudiante] <br>
      * `method`: post <br>
      * `Content-Type`: application/json <br>
      * `Autorization`: none <br>
@@ -220,12 +220,11 @@ class MateriaController extends Controller
      *     {
      *         "respuestas":[
      *              {
-     *                  "pregunta_id": 1,  // integer
+     *                  "pregunta_id": 1,  // integer id de la pregunta
      *                  "respuesta":"on", // integer on or off where on is 1 and off is 0
      *              },
      *         ]
      *     }
-     * @param int $examen id del examen
      * @param int $estudiante id del estudiante
      * @return JSON Ejemplo del resultado:
      *      [
@@ -255,38 +254,49 @@ class MateriaController extends Controller
      *          },
      *      ]
      */
-    public function actionRegisterRespuestas($examen, $estudiante){
+    public function actionRegisterRespuestas($estudiante){
         $request = \Yii::$app->request;
-        $mdExamen = Examen::findOne($examen);
-        if (!$mdExamen){
-            throw new NotFoundHttpException("El examen no existe");
-        }
         $mdEstudiante = Estudiante::findOne($estudiante);
         if (!$mdEstudiante){
             throw new NotFoundHttpException("El estudiante no existe");
         }
-        $respuestas = $request->post('respuestas'); 
 
         try {
-            $transaction = $mdExamen->getDb()->beginTransaction();
+            $transaction = $mdEstudiante->getDb()->beginTransaction();
+            $respuestas = $request->post('respuestas'); 
+            if (count($respuestas) == 0){
+                throw new NotFoundHttpException("No hay respuestas");
+            }
+            $mdExamen = Preguntas::findOne($respuestas[0]['pregunta_id']);
+            if (!$mdExamen){
+                throw new NotFoundHttpException("El examen no existe");
+            }
+
+            $idsRespuestas = [];
+
             foreach ($respuestas as $key => $item) {
                 $respuesta = new Respuestas();
                 $respuesta->estudiante_id = $mdEstudiante->id;
                 $respuesta->pregunta_id = $item['pregunta_id'];
                 $respuesta->respuesta = $item['respuesta']=='on'?1:0;
+
+                $existe = Respuestas::find()->where([
+                    'estudiante_id'=>$respuesta->estudiante_id,
+                    'pregunta_id'=>$respuesta->pregunta_id,
+                ])->exists();
+
+                if ($existe){
+                    throw new \Exception( 'La respuesta ya esta registrada' );
+                }
+
                 if (!$respuesta->save()){
                     throw new \Exception( \app\components\errors\ErrorsComponent::formatJustString($respuesta->errors) );
                 }
+                array_push($idsRespuestas, $respuesta->id);
             }
             $transaction->commit();
 
-            $respuestasEstudiante = Respuestas::find()
-                ->joinWith('pregunta')
-                ->where([
-                    'respuestas.estudiante_id'=>$mdEstudiante->id,
-                    'preguntas.examen_id'=>$mdExamen->id,
-                ])
-                ->all();
+            $respuestasEstudiante = Respuestas::findAll($idsRespuestas);
 
             return ArrayHelper::toArray($respuestasEstudiante, [
                 Respuestas::className() => [
