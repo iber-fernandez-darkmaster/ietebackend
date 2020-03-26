@@ -46,7 +46,8 @@
         "pigochu/yii2-jquery-locationpicker": ">=0.2.0",
         "aminkt/yii2-map-location-picker": "@dev",
         "2amigos/yii2-ckeditor-widget" : "~2.1",
-        "thiagoalessio/tesseract_ocr": "^2.9"
+        "thiagoalessio/tesseract_ocr": "^2.9",
+        "nesbot/carbon": "^2.31"
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.0.0",

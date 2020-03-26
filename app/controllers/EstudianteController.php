@@ -118,11 +118,11 @@ class EstudianteController extends Controller
             $transaction = $model->getDb()->beginTransaction();
             try {
                 $datos = Yii::$app->request->post('Estudiante')['dni'];
-                $model->password_hash = Yii::$app->security->generatePasswordHash($this->password($datos));
+                $model->password_hash = Yii::$app->security->generatePasswordHash($datos);
                 $model->status = 10;
                 $model->auth_key = Yii::$app->security->generateRandomString();
                 if ( !$model->validate() ){
-                    throw new \Exception(var_dump($model->errors));
+                    throw new \Exception( \app\components\errors\ErrorsComponent::formatJustString($model->errors));
                 }
                 $model->save();
                 $image = UploadedFile::getInstance($model, 'foto');
@@ -137,7 +137,6 @@ class EstudianteController extends Controller
                 return $this->redirect(['view', 'id' => $model->id]);
             } catch (\Throwable $e) {
                 $transaction->rollBack();
-                return var_dump($e->getMessage());
                 Yii::$app->session->setFlash('warning', $e->getMessage() );
             }
         }
@@ -201,8 +200,14 @@ class EstudianteController extends Controller
      */
     public function actionDelete($id)
     {
-        $this->findModel($id)->delete();
-
+        $model = $this->findModel($id);
+        $examenes = Respuestas::find()->where([
+            'estudiante_id'=>$model->id
+        ])->exists();
+        if (!$examenes){
+            $model->delete();
+        }
+        \Yii::$app->session->setFlash('warning', 'El estudiante tiene examenes registrados');
         return $this->redirect(['index']);
     }
 

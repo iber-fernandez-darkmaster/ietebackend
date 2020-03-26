@@ -43,7 +43,7 @@ class Estudiante extends \yii\db\ActiveRecord
             [['nombre_completo', 'dni'], 'string', 'max' => 50],
             [['auth_key'], 'string', 'max' => 32],
             [['foto'], 'string', 'max' => 100],
-            [['email'], 'unique'],
+            [['email'],['dni'], 'unique'],
             [['password_hash', 'password_reset_token', 'email'], 'string', 'max' => 255],
             [['centro_id'], 'exist', 'skipOnError' => true, 'targetClass' => Centro::className(), 'targetAttribute' => ['centro_id' => 'id']],
         ];
@@ -88,6 +88,10 @@ class Estudiante extends \yii\db\ActiveRecord
             return \Yii::getAlias('@images').self::Path.$this->foto;
         }
         return null;
+    }
+    public function getHabilitaciones()
+    {
+        return $this->hasMany(Habilitaciones::className(), ['estudiante_id' => 'id']);
     }
 
     /**

@@ -1,0 +1,1457 @@
+Array
+(
+    [0] => Array
+        (
+            [line] => 138
+            [file] => controllers\ProductoController.php
+            [message] => Undefined parameter documented: $nombre in actionCreate().
+        )
+
+    [1] => Array
+        (
+            [line] => 138
+            [file] => controllers\ProductoController.php
+            [message] => Undefined parameter documented: $apellido in actionCreate().
+        )
+
+    [2] => Array
+        (
+            [line] => 138
+            [file] => controllers\ProductoController.php
+            [message] => Undefined parameter documented: $telefono in actionCreate().
+        )
+
+    [3] => Array
+        (
+            [line] => 138
+            [file] => controllers\ProductoController.php
+            [message] => Undefined parameter documented: $celular in actionCreate().
+        )
+
+    [4] => Array
+        (
+            [line] => 138
+            [file] => controllers\ProductoController.php
+            [message] => Undefined parameter documented: $email in actionCreate().
+        )
+
+    [5] => Array
+        (
+            [line] => 138
+            [file] => controllers\ProductoController.php
+            [message] => Undefined parameter documented: $username in actionCreate().
+        )
+
+    [6] => Array
+        (
+            [line] => 138
+            [file] => controllers\ProductoController.php
+            [message] => Undefined parameter documented: $password in actionCreate().
+        )
+
+    [7] => Array
+        (
+            [line] => 138
+            [file] => controllers\ProductoController.php
+            [message] => Undefined parameter documented: $retypePassword in actionCreate().
+        )
+
+    [8] => Array
+        (
+            [line] => 661
+            [file] => controllers\ProductoController.php
+            [message] => Undefined parameter documented: $page in actionSearch().
+        )
+
+    [9] => Array
+        (
+            [line] => 661
+            [file] => controllers\ProductoController.php
+            [message] => Undefined parameter documented: $page in actionSearch().
+        )
+
+    [10] => Array
+        (
+            [line] => 662
+            [file] => controllers\ProductoController.php
+            [message] => Undefined parameter documented: $page in actionSearch().
+        )
+
+    [11] => Array
+        (
+            [line] => 725
+            [file] => controllers\ProductoController.php
+            [message] => Undefined parameter documented: $page in actionSearchPublic().
+        )
+
+    [12] => Array
+        (
+            [line] => 662
+            [file] => controllers\ProductoController.php
+            [message] => Undefined parameter documented: $page in actionSearch().
+        )
+
+    [13] => Array
+        (
+            [line] => 725
+            [file] => controllers\ProductoController.php
+            [message] => Undefined parameter documented: $page in actionSearchPublic().
+        )
+
+    [14] => Array
+        (
+            [line] => 40
+            [file] => controllers\ProductoController.php
+            [message] => Method behaviors has no parent to inherit from in app\controllers\ProductoController.
+        )
+
+    [15] => Array
+        (
+            [line] => 34
+            [file] => controllers\SolicitudController.php
+            [message] => Method behaviors has no parent to inherit from in app\controllers\SolicitudController.
+        )
+
+    [16] => Array
+        (
+            [line] => 33
+            [file] => controllers\SugerenciaController.php
+            [message] => Method behaviors has no parent to inherit from in app\controllers\SugerenciaController.
+        )
+
+    [17] => Array
+        (
+            [line] => 177
+            [file] => controllers\UserController.php
+            [message] => Undefined parameter documented: $ci in actionLogin().
+        )
+
+    [18] => Array
+        (
+            [line] => 177
+            [file] => controllers\UserController.php
+            [message] => Undefined parameter documented: $password in actionLogin().
+        )
+
+    [19] => Array
+        (
+            [line] => 230
+            [file] => controllers\UserController.php
+            [message] => Undefined parameter documented: $ci in actionLoginFacebook().
+        )
+
+    [20] => Array
+        (
+            [line] => 230
+            [file] => controllers\UserController.php
+            [message] => Undefined parameter documented: $password in actionLoginFacebook().
+        )
+
+    [21] => Array
+        (
+            [line] => 289
+            [file] => controllers\UserController.php
+            [message] => Undefined parameter documented: $nombre in actionSignup().
+        )
+
+    [22] => Array
+        (
+            [line] => 289
+            [file] => controllers\UserController.php
+            [message] => Undefined parameter documented: $apellido in actionSignup().
+        )
+
+    [23] => Array
+        (
+            [line] => 289
+            [file] => controllers\UserController.php
+            [message] => Undefined parameter documented: $telefono in actionSignup().
+        )
+
+    [24] => Array
+        (
+            [line] => 289
+            [file] => controllers\UserController.php
+            [message] => Undefined parameter documented: $celular in actionSignup().
+        )
+
+    [25] => Array
+        (
+            [line] => 289
+            [file] => controllers\UserController.php
+            [message] => Undefined parameter documented: $email in actionSignup().
+        )
+
+    [26] => Array
+        (
+            [line] => 289
+            [file] => controllers\UserController.php
+            [message] => Undefined parameter documented: $username in actionSignup().
+        )
+
+    [27] => Array
+        (
+            [line] => 289
+            [file] => controllers\UserController.php
+            [message] => Undefined parameter documented: $password in actionSignup().
+        )
+
+    [28] => Array
+        (
+            [line] => 289
+            [file] => controllers\UserController.php
+            [message] => Undefined parameter documented: $retypePassword in actionSignup().
+        )
+
+    [29] => Array
+        (
+            [line] => 380
+            [file] => controllers\UserController.php
+            [message] => Undefined parameter documented: $id in actionCambiarFoto().
+        )
+
+    [30] => Array
+        (
+            [line] => 170
+            [file] => controllers\UserController.php
+            [message] => Undefined parameter documented: $ci in actionLogin().
+        )
+
+    [31] => Array
+        (
+            [line] => 170
+            [file] => controllers\UserController.php
+            [message] => Undefined parameter documented: $password in actionLogin().
+        )
+
+    [32] => Array
+        (
+            [line] => 223
+            [file] => controllers\UserController.php
+            [message] => Undefined parameter documented: $ci in actionLoginFacebook().
+        )
+
+    [33] => Array
+        (
+            [line] => 223
+            [file] => controllers\UserController.php
+            [message] => Undefined parameter documented: $password in actionLoginFacebook().
+        )
+
+    [34] => Array
+        (
+            [line] => 282
+            [file] => controllers\UserController.php
+            [message] => Undefined parameter documented: $nombre in actionSignup().
+        )
+
+    [35] => Array
+        (
+            [line] => 282
+            [file] => controllers\UserController.php
+            [message] => Undefined parameter documented: $apellido in actionSignup().
+        )
+
+    [36] => Array
+        (
+            [line] => 282
+            [file] => controllers\UserController.php
+            [message] => Undefined parameter documented: $telefono in actionSignup().
+        )
+
+    [37] => Array
+        (
+            [line] => 282
+            [file] => controllers\UserController.php
+            [message] => Undefined parameter documented: $celular in actionSignup().
+        )
+
+    [38] => Array
+        (
+            [line] => 282
+            [file] => controllers\UserController.php
+            [message] => Undefined parameter documented: $email in actionSignup().
+        )
+
+    [39] => Array
+        (
+            [line] => 282
+            [file] => controllers\UserController.php
+            [message] => Undefined parameter documented: $username in actionSignup().
+        )
+
+    [40] => Array
+        (
+            [line] => 282
+            [file] => controllers\UserController.php
+            [message] => Undefined parameter documented: $password in actionSignup().
+        )
+
+    [41] => Array
+        (
+            [line] => 282
+            [file] => controllers\UserController.php
+            [message] => Undefined parameter documented: $retypePassword in actionSignup().
+        )
+
+    [42] => Array
+        (
+            [line] => 373
+            [file] => controllers\UserController.php
+            [message] => Undefined parameter documented: $id in actionCambiarFoto().
+        )
+
+    [43] => Array
+        (
+            [line] => 173
+            [file] => controllers\UserController.php
+            [message] => Undefined parameter documented: $ci in actionLogin().
+        )
+
+    [44] => Array
+        (
+            [line] => 173
+            [file] => controllers\UserController.php
+            [message] => Undefined parameter documented: $password in actionLogin().
+        )
+
+    [45] => Array
+        (
+            [line] => 226
+            [file] => controllers\UserController.php
+            [message] => Undefined parameter documented: $ci in actionLoginFacebook().
+        )
+
+    [46] => Array
+        (
+            [line] => 226
+            [file] => controllers\UserController.php
+            [message] => Undefined parameter documented: $password in actionLoginFacebook().
+        )
+
+    [47] => Array
+        (
+            [line] => 285
+            [file] => controllers\UserController.php
+            [message] => Undefined parameter documented: $nombre in actionSignup().
+        )
+
+    [48] => Array
+        (
+            [line] => 285
+            [file] => controllers\UserController.php
+            [message] => Undefined parameter documented: $apellido in actionSignup().
+        )
+
+    [49] => Array
+        (
+            [line] => 285
+            [file] => controllers\UserController.php
+            [message] => Undefined parameter documented: $telefono in actionSignup().
+        )
+
+    [50] => Array
+        (
+            [line] => 285
+            [file] => controllers\UserController.php
+            [message] => Undefined parameter documented: $celular in actionSignup().
+        )
+
+    [51] => Array
+        (
+            [line] => 285
+            [file] => controllers\UserController.php
+            [message] => Undefined parameter documented: $email in actionSignup().
+        )
+
+    [52] => Array
+        (
+            [line] => 285
+            [file] => controllers\UserController.php
+            [message] => Undefined parameter documented: $username in actionSignup().
+        )
+
+    [53] => Array
+        (
+            [line] => 285
+            [file] => controllers\UserController.php
+            [message] => Undefined parameter documented: $password in actionSignup().
+        )
+
+    [54] => Array
+        (
+            [line] => 285
+            [file] => controllers\UserController.php
+            [message] => Undefined parameter documented: $retypePassword in actionSignup().
+        )
+
+    [55] => Array
+        (
+            [line] => 376
+            [file] => controllers\UserController.php
+            [message] => Undefined parameter documented: $id in actionCambiarFoto().
+        )
+
+    [56] => Array
+        (
+            [line] => 478
+            [file] => controllers\UserController.php
+            [message] => Undefined parameter documented: $id in actionPerfil().
+        )
+
+    [57] => Array
+        (
+            [line] => 553
+            [file] => controllers\UserController.php
+            [message] => Undefined parameter documented: $id in actionProductos().
+        )
+
+    [58] => Array
+        (
+            [line] => 177
+            [file] => controllers\UserController.php
+            [message] => Undefined parameter documented: $ci in actionLogin().
+        )
+
+    [59] => Array
+        (
+            [line] => 177
+            [file] => controllers\UserController.php
+            [message] => Undefined parameter documented: $password in actionLogin().
+        )
+
+    [60] => Array
+        (
+            [line] => 230
+            [file] => controllers\UserController.php
+            [message] => Undefined parameter documented: $ci in actionLoginFacebook().
+        )
+
+    [61] => Array
+        (
+            [line] => 230
+            [file] => controllers\UserController.php
+            [message] => Undefined parameter documented: $password in actionLoginFacebook().
+        )
+
+    [62] => Array
+        (
+            [line] => 289
+            [file] => controllers\UserController.php
+            [message] => Undefined parameter documented: $nombre in actionSignup().
+        )
+
+    [63] => Array
+        (
+            [line] => 289
+            [file] => controllers\UserController.php
+            [message] => Undefined parameter documented: $apellido in actionSignup().
+        )
+
+    [64] => Array
+        (
+            [line] => 289
+            [file] => controllers\UserController.php
+            [message] => Undefined parameter documented: $telefono in actionSignup().
+        )
+
+    [65] => Array
+        (
+            [line] => 289
+            [file] => controllers\UserController.php
+            [message] => Undefined parameter documented: $celular in actionSignup().
+        )
+
+    [66] => Array
+        (
+            [line] => 289
+            [file] => controllers\UserController.php
+            [message] => Undefined parameter documented: $email in actionSignup().
+        )
+
+    [67] => Array
+        (
+            [line] => 289
+            [file] => controllers\UserController.php
+            [message] => Undefined parameter documented: $username in actionSignup().
+        )
+
+    [68] => Array
+        (
+            [line] => 289
+            [file] => controllers\UserController.php
+            [message] => Undefined parameter documented: $password in actionSignup().
+        )
+
+    [69] => Array
+        (
+            [line] => 289
+            [file] => controllers\UserController.php
+            [message] => Undefined parameter documented: $retypePassword in actionSignup().
+        )
+
+    [70] => Array
+        (
+            [line] => 620
+            [file] => controllers\UserController.php
+            [message] => Undefined parameter documented: $id in actionFavoritos().
+        )
+
+    [71] => Array
+        (
+            [line] => 196
+            [file] => controllers\UserController.php
+            [message] => Undefined parameter documented: $ci in actionLogin().
+        )
+
+    [72] => Array
+        (
+            [line] => 196
+            [file] => controllers\UserController.php
+            [message] => Undefined parameter documented: $password in actionLogin().
+        )
+
+    [73] => Array
+        (
+            [line] => 248
+            [file] => controllers\UserController.php
+            [message] => Undefined parameter documented: $ci in actionLoginFacebook().
+        )
+
+    [74] => Array
+        (
+            [line] => 248
+            [file] => controllers\UserController.php
+            [message] => Undefined parameter documented: $password in actionLoginFacebook().
+        )
+
+    [75] => Array
+        (
+            [line] => 305
+            [file] => controllers\UserController.php
+            [message] => Undefined parameter documented: $nombre in actionSignup().
+        )
+
+    [76] => Array
+        (
+            [line] => 305
+            [file] => controllers\UserController.php
+            [message] => Undefined parameter documented: $apellido in actionSignup().
+        )
+
+    [77] => Array
+        (
+            [line] => 305
+            [file] => controllers\UserController.php
+            [message] => Undefined parameter documented: $telefono in actionSignup().
+        )
+
+    [78] => Array
+        (
+            [line] => 305
+            [file] => controllers\UserController.php
+            [message] => Undefined parameter documented: $celular in actionSignup().
+        )
+
+    [79] => Array
+        (
+            [line] => 305
+            [file] => controllers\UserController.php
+            [message] => Undefined parameter documented: $email in actionSignup().
+        )
+
+    [80] => Array
+        (
+            [line] => 305
+            [file] => controllers\UserController.php
+            [message] => Undefined parameter documented: $password in actionSignup().
+        )
+
+    [81] => Array
+        (
+            [line] => 305
+            [file] => controllers\UserController.php
+            [message] => Undefined parameter documented: $retypePassword in actionSignup().
+        )
+
+    [82] => Array
+        (
+            [line] => 618
+            [file] => controllers\UserController.php
+            [message] => Undefined parameter documented: $id in actionFavoritos().
+        )
+
+    [83] => Array
+        (
+            [line] => 197
+            [file] => controllers\UserController.php
+            [message] => Undefined parameter documented: $ci in actionLogin().
+        )
+
+    [84] => Array
+        (
+            [line] => 197
+            [file] => controllers\UserController.php
+            [message] => Undefined parameter documented: $password in actionLogin().
+        )
+
+    [85] => Array
+        (
+            [line] => 249
+            [file] => controllers\UserController.php
+            [message] => Undefined parameter documented: $ci in actionLoginFacebook().
+        )
+
+    [86] => Array
+        (
+            [line] => 249
+            [file] => controllers\UserController.php
+            [message] => Undefined parameter documented: $password in actionLoginFacebook().
+        )
+
+    [87] => Array
+        (
+            [line] => 306
+            [file] => controllers\UserController.php
+            [message] => Undefined parameter documented: $nombre in actionSignup().
+        )
+
+    [88] => Array
+        (
+            [line] => 306
+            [file] => controllers\UserController.php
+            [message] => Undefined parameter documented: $apellido in actionSignup().
+        )
+
+    [89] => Array
+        (
+            [line] => 306
+            [file] => controllers\UserController.php
+            [message] => Undefined parameter documented: $telefono in actionSignup().
+        )
+
+    [90] => Array
+        (
+            [line] => 306
+            [file] => controllers\UserController.php
+            [message] => Undefined parameter documented: $celular in actionSignup().
+        )
+
+    [91] => Array
+        (
+            [line] => 306
+            [file] => controllers\UserController.php
+            [message] => Undefined parameter documented: $email in actionSignup().
+        )
+
+    [92] => Array
+        (
+            [line] => 306
+            [file] => controllers\UserController.php
+            [message] => Undefined parameter documented: $password in actionSignup().
+        )
+
+    [93] => Array
+        (
+            [line] => 306
+            [file] => controllers\UserController.php
+            [message] => Undefined parameter documented: $retypePassword in actionSignup().
+        )
+
+    [94] => Array
+        (
+            [line] => 652
+            [file] => controllers\UserController.php
+            [message] => Undefined parameter documented: $id in actionFavoritos().
+        )
+
+    [95] => Array
+        (
+            [line] => 199
+            [file] => controllers\UserController.php
+            [message] => Undefined parameter documented: $ci in actionLogin().
+        )
+
+    [96] => Array
+        (
+            [line] => 199
+            [file] => controllers\UserController.php
+            [message] => Undefined parameter documented: $password in actionLogin().
+        )
+
+    [97] => Array
+        (
+            [line] => 251
+            [file] => controllers\UserController.php
+            [message] => Undefined parameter documented: $ci in actionLoginFacebook().
+        )
+
+    [98] => Array
+        (
+            [line] => 251
+            [file] => controllers\UserController.php
+            [message] => Undefined parameter documented: $password in actionLoginFacebook().
+        )
+
+    [99] => Array
+        (
+            [line] => 308
+            [file] => controllers\UserController.php
+            [message] => Undefined parameter documented: $nombre in actionSignup().
+        )
+
+    [100] => Array
+        (
+            [line] => 308
+            [file] => controllers\UserController.php
+            [message] => Undefined parameter documented: $apellido in actionSignup().
+        )
+
+    [101] => Array
+        (
+            [line] => 308
+            [file] => controllers\UserController.php
+            [message] => Undefined parameter documented: $telefono in actionSignup().
+        )
+
+    [102] => Array
+        (
+            [line] => 308
+            [file] => controllers\UserController.php
+            [message] => Undefined parameter documented: $celular in actionSignup().
+        )
+
+    [103] => Array
+        (
+            [line] => 308
+            [file] => controllers\UserController.php
+            [message] => Undefined parameter documented: $email in actionSignup().
+        )
+
+    [104] => Array
+        (
+            [line] => 308
+            [file] => controllers\UserController.php
+            [message] => Undefined parameter documented: $password in actionSignup().
+        )
+
+    [105] => Array
+        (
+            [line] => 308
+            [file] => controllers\UserController.php
+            [message] => Undefined parameter documented: $retypePassword in actionSignup().
+        )
+
+    [106] => Array
+        (
+            [line] => 654
+            [file] => controllers\UserController.php
+            [message] => Undefined parameter documented: $id in actionFavoritos().
+        )
+
+    [107] => Array
+        (
+            [line] => 199
+            [file] => controllers\UserController.php
+            [message] => Undefined parameter documented: $ci in actionLogin().
+        )
+
+    [108] => Array
+        (
+            [line] => 199
+            [file] => controllers\UserController.php
+            [message] => Undefined parameter documented: $password in actionLogin().
+        )
+
+    [109] => Array
+        (
+            [line] => 251
+            [file] => controllers\UserController.php
+            [message] => Undefined parameter documented: $ci in actionLoginFacebook().
+        )
+
+    [110] => Array
+        (
+            [line] => 251
+            [file] => controllers\UserController.php
+            [message] => Undefined parameter documented: $password in actionLoginFacebook().
+        )
+
+    [111] => Array
+        (
+            [line] => 308
+            [file] => controllers\UserController.php
+            [message] => Undefined parameter documented: $nombre in actionSignup().
+        )
+
+    [112] => Array
+        (
+            [line] => 308
+            [file] => controllers\UserController.php
+            [message] => Undefined parameter documented: $apellido in actionSignup().
+        )
+
+    [113] => Array
+        (
+            [line] => 308
+            [file] => controllers\UserController.php
+            [message] => Undefined parameter documented: $telefono in actionSignup().
+        )
+
+    [114] => Array
+        (
+            [line] => 308
+            [file] => controllers\UserController.php
+            [message] => Undefined parameter documented: $celular in actionSignup().
+        )
+
+    [115] => Array
+        (
+            [line] => 308
+            [file] => controllers\UserController.php
+            [message] => Undefined parameter documented: $email in actionSignup().
+        )
+
+    [116] => Array
+        (
+            [line] => 308
+            [file] => controllers\UserController.php
+            [message] => Undefined parameter documented: $password in actionSignup().
+        )
+
+    [117] => Array
+        (
+            [line] => 308
+            [file] => controllers\UserController.php
+            [message] => Undefined parameter documented: $retypePassword in actionSignup().
+        )
+
+    [118] => Array
+        (
+            [line] => 654
+            [file] => controllers\UserController.php
+            [message] => Undefined parameter documented: $id in actionFavoritos().
+        )
+
+    [119] => Array
+        (
+            [line] => 199
+            [file] => controllers\UserController.php
+            [message] => Undefined parameter documented: $ci in actionLogin().
+        )
+
+    [120] => Array
+        (
+            [line] => 199
+            [file] => controllers\UserController.php
+            [message] => Undefined parameter documented: $password in actionLogin().
+        )
+
+    [121] => Array
+        (
+            [line] => 251
+            [file] => controllers\UserController.php
+            [message] => Undefined parameter documented: $ci in actionLoginFacebook().
+        )
+
+    [122] => Array
+        (
+            [line] => 251
+            [file] => controllers\UserController.php
+            [message] => Undefined parameter documented: $password in actionLoginFacebook().
+        )
+
+    [123] => Array
+        (
+            [line] => 308
+            [file] => controllers\UserController.php
+            [message] => Undefined parameter documented: $nombre in actionSignup().
+        )
+
+    [124] => Array
+        (
+            [line] => 308
+            [file] => controllers\UserController.php
+            [message] => Undefined parameter documented: $apellido in actionSignup().
+        )
+
+    [125] => Array
+        (
+            [line] => 308
+            [file] => controllers\UserController.php
+            [message] => Undefined parameter documented: $telefono in actionSignup().
+        )
+
+    [126] => Array
+        (
+            [line] => 308
+            [file] => controllers\UserController.php
+            [message] => Undefined parameter documented: $celular in actionSignup().
+        )
+
+    [127] => Array
+        (
+            [line] => 308
+            [file] => controllers\UserController.php
+            [message] => Undefined parameter documented: $email in actionSignup().
+        )
+
+    [128] => Array
+        (
+            [line] => 308
+            [file] => controllers\UserController.php
+            [message] => Undefined parameter documented: $password in actionSignup().
+        )
+
+    [129] => Array
+        (
+            [line] => 308
+            [file] => controllers\UserController.php
+            [message] => Undefined parameter documented: $retypePassword in actionSignup().
+        )
+
+    [130] => Array
+        (
+            [line] => 654
+            [file] => controllers\UserController.php
+            [message] => Undefined parameter documented: $id in actionFavoritos().
+        )
+
+    [131] => Array
+        (
+            [line] => 199
+            [file] => controllers\UserController.php
+            [message] => Undefined parameter documented: $ci in actionLogin().
+        )
+
+    [132] => Array
+        (
+            [line] => 199
+            [file] => controllers\UserController.php
+            [message] => Undefined parameter documented: $password in actionLogin().
+        )
+
+    [133] => Array
+        (
+            [line] => 251
+            [file] => controllers\UserController.php
+            [message] => Undefined parameter documented: $ci in actionLoginFacebook().
+        )
+
+    [134] => Array
+        (
+            [line] => 251
+            [file] => controllers\UserController.php
+            [message] => Undefined parameter documented: $password in actionLoginFacebook().
+        )
+
+    [135] => Array
+        (
+            [line] => 308
+            [file] => controllers\UserController.php
+            [message] => Undefined parameter documented: $nombre in actionSignup().
+        )
+
+    [136] => Array
+        (
+            [line] => 308
+            [file] => controllers\UserController.php
+            [message] => Undefined parameter documented: $apellido in actionSignup().
+        )
+
+    [137] => Array
+        (
+            [line] => 308
+            [file] => controllers\UserController.php
+            [message] => Undefined parameter documented: $telefono in actionSignup().
+        )
+
+    [138] => Array
+        (
+            [line] => 308
+            [file] => controllers\UserController.php
+            [message] => Undefined parameter documented: $celular in actionSignup().
+        )
+
+    [139] => Array
+        (
+            [line] => 308
+            [file] => controllers\UserController.php
+            [message] => Undefined parameter documented: $email in actionSignup().
+        )
+
+    [140] => Array
+        (
+            [line] => 308
+            [file] => controllers\UserController.php
+            [message] => Undefined parameter documented: $password in actionSignup().
+        )
+
+    [141] => Array
+        (
+            [line] => 308
+            [file] => controllers\UserController.php
+            [message] => Undefined parameter documented: $retypePassword in actionSignup().
+        )
+
+    [142] => Array
+        (
+            [line] => 654
+            [file] => controllers\UserController.php
+            [message] => Undefined parameter documented: $id in actionFavoritos().
+        )
+
+    [143] => Array
+        (
+            [line] => 223
+            [file] => controllers\UserController.php
+            [message] => Undefined parameter documented: $ci in actionLogin().
+        )
+
+    [144] => Array
+        (
+            [line] => 223
+            [file] => controllers\UserController.php
+            [message] => Undefined parameter documented: $password in actionLogin().
+        )
+
+    [145] => Array
+        (
+            [line] => 397
+            [file] => controllers\UserController.php
+            [message] => Undefined parameter documented: $nombre in actionSignup().
+        )
+
+    [146] => Array
+        (
+            [line] => 397
+            [file] => controllers\UserController.php
+            [message] => Undefined parameter documented: $apellido in actionSignup().
+        )
+
+    [147] => Array
+        (
+            [line] => 397
+            [file] => controllers\UserController.php
+            [message] => Undefined parameter documented: $telefono in actionSignup().
+        )
+
+    [148] => Array
+        (
+            [line] => 397
+            [file] => controllers\UserController.php
+            [message] => Undefined parameter documented: $celular in actionSignup().
+        )
+
+    [149] => Array
+        (
+            [line] => 397
+            [file] => controllers\UserController.php
+            [message] => Undefined parameter documented: $email in actionSignup().
+        )
+
+    [150] => Array
+        (
+            [line] => 397
+            [file] => controllers\UserController.php
+            [message] => Undefined parameter documented: $password in actionSignup().
+        )
+
+    [151] => Array
+        (
+            [line] => 397
+            [file] => controllers\UserController.php
+            [message] => Undefined parameter documented: $retypePassword in actionSignup().
+        )
+
+    [152] => Array
+        (
+            [line] => 743
+            [file] => controllers\UserController.php
+            [message] => Undefined parameter documented: $id in actionFavoritos().
+        )
+
+    [153] => Array
+        (
+            [line] => 227
+            [file] => controllers\UserController.php
+            [message] => Undefined parameter documented: $ci in actionLogin().
+        )
+
+    [154] => Array
+        (
+            [line] => 227
+            [file] => controllers\UserController.php
+            [message] => Undefined parameter documented: $password in actionLogin().
+        )
+
+    [155] => Array
+        (
+            [line] => 431
+            [file] => controllers\UserController.php
+            [message] => Undefined parameter documented: $nombre in actionSignup().
+        )
+
+    [156] => Array
+        (
+            [line] => 431
+            [file] => controllers\UserController.php
+            [message] => Undefined parameter documented: $apellido in actionSignup().
+        )
+
+    [157] => Array
+        (
+            [line] => 431
+            [file] => controllers\UserController.php
+            [message] => Undefined parameter documented: $telefono in actionSignup().
+        )
+
+    [158] => Array
+        (
+            [line] => 431
+            [file] => controllers\UserController.php
+            [message] => Undefined parameter documented: $celular in actionSignup().
+        )
+
+    [159] => Array
+        (
+            [line] => 431
+            [file] => controllers\UserController.php
+            [message] => Undefined parameter documented: $email in actionSignup().
+        )
+
+    [160] => Array
+        (
+            [line] => 431
+            [file] => controllers\UserController.php
+            [message] => Undefined parameter documented: $password in actionSignup().
+        )
+
+    [161] => Array
+        (
+            [line] => 431
+            [file] => controllers\UserController.php
+            [message] => Undefined parameter documented: $retypePassword in actionSignup().
+        )
+
+    [162] => Array
+        (
+            [line] => 777
+            [file] => controllers\UserController.php
+            [message] => Undefined parameter documented: $id in actionFavoritos().
+        )
+
+    [163] => Array
+        (
+            [line] => 227
+            [file] => controllers\UserController.php
+            [message] => Undefined parameter documented: $ci in actionLogin().
+        )
+
+    [164] => Array
+        (
+            [line] => 227
+            [file] => controllers\UserController.php
+            [message] => Undefined parameter documented: $password in actionLogin().
+        )
+
+    [165] => Array
+        (
+            [line] => 436
+            [file] => controllers\UserController.php
+            [message] => Undefined parameter documented: $nombre in actionSignup().
+        )
+
+    [166] => Array
+        (
+            [line] => 436
+            [file] => controllers\UserController.php
+            [message] => Undefined parameter documented: $apellido in actionSignup().
+        )
+
+    [167] => Array
+        (
+            [line] => 436
+            [file] => controllers\UserController.php
+            [message] => Undefined parameter documented: $telefono in actionSignup().
+        )
+
+    [168] => Array
+        (
+            [line] => 436
+            [file] => controllers\UserController.php
+            [message] => Undefined parameter documented: $celular in actionSignup().
+        )
+
+    [169] => Array
+        (
+            [line] => 436
+            [file] => controllers\UserController.php
+            [message] => Undefined parameter documented: $email in actionSignup().
+        )
+
+    [170] => Array
+        (
+            [line] => 436
+            [file] => controllers\UserController.php
+            [message] => Undefined parameter documented: $password in actionSignup().
+        )
+
+    [171] => Array
+        (
+            [line] => 436
+            [file] => controllers\UserController.php
+            [message] => Undefined parameter documented: $retypePassword in actionSignup().
+        )
+
+    [172] => Array
+        (
+            [line] => 782
+            [file] => controllers\UserController.php
+            [message] => Undefined parameter documented: $id in actionFavoritos().
+        )
+
+    [173] => Array
+        (
+            [line] => 230
+            [file] => controllers\UserController.php
+            [message] => Undefined parameter documented: $ci in actionLogin().
+        )
+
+    [174] => Array
+        (
+            [line] => 230
+            [file] => controllers\UserController.php
+            [message] => Undefined parameter documented: $password in actionLogin().
+        )
+
+    [175] => Array
+        (
+            [line] => 434
+            [file] => controllers\UserController.php
+            [message] => Undefined parameter documented: $nombre in actionSignup().
+        )
+
+    [176] => Array
+        (
+            [line] => 434
+            [file] => controllers\UserController.php
+            [message] => Undefined parameter documented: $apellido in actionSignup().
+        )
+
+    [177] => Array
+        (
+            [line] => 434
+            [file] => controllers\UserController.php
+            [message] => Undefined parameter documented: $telefono in actionSignup().
+        )
+
+    [178] => Array
+        (
+            [line] => 434
+            [file] => controllers\UserController.php
+            [message] => Undefined parameter documented: $celular in actionSignup().
+        )
+
+    [179] => Array
+        (
+            [line] => 434
+            [file] => controllers\UserController.php
+            [message] => Undefined parameter documented: $email in actionSignup().
+        )
+
+    [180] => Array
+        (
+            [line] => 434
+            [file] => controllers\UserController.php
+            [message] => Undefined parameter documented: $password in actionSignup().
+        )
+
+    [181] => Array
+        (
+            [line] => 434
+            [file] => controllers\UserController.php
+            [message] => Undefined parameter documented: $retypePassword in actionSignup().
+        )
+
+    [182] => Array
+        (
+            [line] => 780
+            [file] => controllers\UserController.php
+            [message] => Undefined parameter documented: $id in actionFavoritos().
+        )
+
+    [183] => Array
+        (
+            [line] => 231
+            [file] => controllers\UserController.php
+            [message] => Undefined parameter documented: $ci in actionLogin().
+        )
+
+    [184] => Array
+        (
+            [line] => 231
+            [file] => controllers\UserController.php
+            [message] => Undefined parameter documented: $password in actionLogin().
+        )
+
+    [185] => Array
+        (
+            [line] => 435
+            [file] => controllers\UserController.php
+            [message] => Undefined parameter documented: $nombre in actionSignup().
+        )
+
+    [186] => Array
+        (
+            [line] => 435
+            [file] => controllers\UserController.php
+            [message] => Undefined parameter documented: $apellido in actionSignup().
+        )
+
+    [187] => Array
+        (
+            [line] => 435
+            [file] => controllers\UserController.php
+            [message] => Undefined parameter documented: $telefono in actionSignup().
+        )
+
+    [188] => Array
+        (
+            [line] => 435
+            [file] => controllers\UserController.php
+            [message] => Undefined parameter documented: $celular in actionSignup().
+        )
+
+    [189] => Array
+        (
+            [line] => 435
+            [file] => controllers\UserController.php
+            [message] => Undefined parameter documented: $email in actionSignup().
+        )
+
+    [190] => Array
+        (
+            [line] => 435
+            [file] => controllers\UserController.php
+            [message] => Undefined parameter documented: $password in actionSignup().
+        )
+
+    [191] => Array
+        (
+            [line] => 435
+            [file] => controllers\UserController.php
+            [message] => Undefined parameter documented: $retypePassword in actionSignup().
+        )
+
+    [192] => Array
+        (
+            [line] => 811
+            [file] => controllers\UserController.php
+            [message] => Undefined parameter documented: $id in actionFavoritos().
+        )
+
+    [193] => Array
+        (
+            [line] => 71
+            [file] => controllers\UserController.php
+            [message] => Method behaviors has no parent to inherit from in app\controllers\UserController.
+        )
+
+    [194] => Array
+        (
+            [line] => 35
+            [file] => models\ChangePassword.php
+            [message] => Method rules has no parent to inherit from in app\models\ChangePassword.
+        )
+
+    [195] => Array
+        (
+            [line] => 84
+            [file] => models\ChangePassword.php
+            [message] => Method attributeLabels has no parent to inherit from in app\models\ChangePassword.
+        )
+
+    [196] => Array
+        (
+            [line] => 37
+            [file] => models\Login.php
+            [message] => Method rules has no parent to inherit from in app\models\Login.
+        )
+
+    [197] => Array
+        (
+            [line] => 41
+            [file] => models\Signup.php
+            [message] => Method rules has no parent to inherit from in app\models\Signup.
+        )
+
+    [198] => Array
+        (
+            [file] => models\Signup.php
+            [message] => broken link to \app\models\username in app\models\Signup
+        )
+
+    [199] => Array
+        (
+            [file] => models\Signup.php
+            [message] => broken link to \app\models\username in app\models\Signup
+        )
+
+    [200] => Array
+        (
+            [line] => 62
+            [file] => models\User.php
+            [message] => Method tableName has no parent to inherit from in app\models\User.
+        )
+
+    [201] => Array
+        (
+            [line] => 70
+            [file] => models\User.php
+            [message] => Method behaviors has no parent to inherit from in app\models\User.
+        )
+
+    [202] => Array
+        (
+            [line] => 81
+            [file] => models\User.php
+            [message] => Method rules has no parent to inherit from in app\models\User.
+        )
+
+    [203] => Array
+        (
+            [line] => 92
+            [file] => models\User.php
+            [message] => Method findIdentity has no parent to inherit from in app\models\User.
+        )
+
+    [204] => Array
+        (
+            [line] => 100
+            [file] => models\User.php
+            [message] => Method findIdentityByAccessToken has no parent to inherit from in app\models\User.
+        )
+
+    [205] => Array
+        (
+            [line] => 164
+            [file] => models\User.php
+            [message] => Method getId has no parent to inherit from in app\models\User.
+        )
+
+    [206] => Array
+        (
+            [line] => 172
+            [file] => models\User.php
+            [message] => Method getAuthKey has no parent to inherit from in app\models\User.
+        )
+
+    [207] => Array
+        (
+            [line] => 180
+            [file] => models\User.php
+            [message] => Method validateAuthKey has no parent to inherit from in app\models\User.
+        )
+
+)

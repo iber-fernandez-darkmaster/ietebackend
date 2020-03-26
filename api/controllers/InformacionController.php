@@ -9,6 +9,7 @@ use yii\filters\VerbFilter;
 use app\models\Informacion;
 use app\models\Materia;
 use app\models\Estudiante;
+use app\models\Habilitaciones;
 
 use yii\web\ForbiddenHttpException;
 use yii\web\NotAcceptableHttpException;
@@ -72,7 +73,7 @@ class InformacionController extends Controller
                 'class' => VerbFilter::className(),
                 'actions' => [
                     'crearinformacion' => ['post'],
-                    'materias' => ['get'],
+                    'materias' => ['post'],
                 ],
             ],
         ];
@@ -179,18 +180,28 @@ class InformacionController extends Controller
 
         $request = \Yii::$app->request;
 
-        $id = $request->get('idestudiante');
+        $id = $request->post('idestudiante');
         $estudiante = Estudiante::findOne($id);
         if ( !$estudiante ){
             throw new UnprocessableEntityHttpException( 'El estudiante no existe' );
         }
 
-        $materias = Materia::find()->orderBy(['rand()' => SORT_DESC])->all();
+        $materias = Habilitaciones::find()
+        ->where(['estudiante_id'=>$id,'estado'=>'Activo'])
+        ->orderBy(['rand()' => SORT_DESC])
+        ->all();
 
         $datos = ArrayHelper::toArray($materias, [
-            Materia::className() => [
-                'id',
-                'nombre',
+            Habilitaciones::className() => [
+                'estudiante'=>function($model){
+                    return $model->estudiante->nombre_completo;
+                },
+                'materia'=>function($model){
+                    return $model->materia->nombre;
+                },
+                'id'=>function($model){
+                    return $model->materia->id;
+                },
             ],
         ]);
 

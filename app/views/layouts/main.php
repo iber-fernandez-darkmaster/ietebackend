@@ -66,7 +66,30 @@ AppAsset::register($this);
                     $menu = [];
                     
                     if (Yii::$app->user->can('Administrador')){
-                        array_push($menu, [
+                                  
+                   
+
+                        array_push($menu, 
+                            [
+                                'icon'=>'assignment', 'label' => 'Centros', 'url' => ['/centro']
+                            ]
+                        );
+                          array_push($menu, 
+                            [
+                                'icon'=>'assignment', 'label' => 'Estudiantes', 'url' => ['/estudiante']
+                            ]
+                        );
+                          array_push($menu, 
+                            [
+                                'icon'=>'import_contacts', 'label' => 'Materias', 'url' => ['/materia']
+                            ]
+                        );
+                          array_push($menu, 
+                            [
+                                'icon'=>'lock_open', 'label' => 'Habilitaciones', 'url' => ['/habilitaciones']
+                            ]
+                        );
+                          array_push($menu, [
                             'dropdownicon'=>'face', 'icon'=>'face', 'label' => 'Sistema', 'url' => ['#'], 'color'=>'text-default',
                             'items'=>[
                                 ['icon'=>'directions', 'label' => 'Permisos', 'url' => ['/admin/route'] , 'color'=>'text-default'],
@@ -76,28 +99,19 @@ AppAsset::register($this);
                                 ['icon'=>'cloud_download', 'label' => 'Backups', 'url' => ['/db-manager'] , 'color'=>'text-default'],
                                 ['icon'=>'pets', 'label' => 'Historial', 'url' => ['/trailslog'] , 'color'=>'text-default'],
                             ], 
-                        ]);                    
+                        ]);  
+                     
+                    }
+                    
+                      
+                        
+                        
+                    if (Yii::$app->user->can('Responsable Centro')){
                         array_push($menu, 
                             [
-                                'icon'=>'assignment', 'label' => 'Informacion', 'url' => ['/informacion']
+                                'icon'=>'assignment', 'label' => 'Estudiantes', 'url' => ['/estudiante']
                             ]
                         );
-                        array_push($menu, [
-                            'dropdownicon'=>'subject', 'icon'=>'subject', 'label' => 'Materias', 'url' => ['#'], 'color'=>'text-default',
-                            'items'=>[
-                                ['icon'=>'store', 'label' => 'Centros', 'url' => ['/centro'] , 'color'=>'text-default'],
-                                ['icon'=>'person_pin', 'label' => 'Estudiantes', 'url' => ['/estudiante'] , 'color'=>'text-default'],
-                                ['icon'=>'import_contacts', 'label' => 'Materias', 'url' => ['/materia'] , 'color'=>'text-default'],
-                            ], 
-                        ]);
-                    }
-                    if (Yii::$app->user->can('Responsable Centro')){
-                        array_push($menu, [
-                            'dropdownicon'=>'subject', 'icon'=>'subject', 'label' => 'Materias', 'url' => ['#'], 'color'=>'text-default',
-                            'items'=>[
-                                ['icon'=>'person_pin', 'label' => 'Estudiantes', 'url' => ['/estudiante'] , 'color'=>'text-default'],
-                            ], 
-                        ]);
                     }
                 ?>
                 <?=Menu::widget([
@@ -206,7 +220,7 @@ AppAsset::register($this);
             </div>
             <footer class="footer hidden-print">
                 <div class="container-fluid">
-                    <p class="pull-left">&copy; <?=Yii::$app->name?>
+                    <p class="pull-left">© <?=Yii::$app->name?>
                         <?= date('Y') ?>
                     </p>
 

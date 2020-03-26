@@ -1,0 +1,1111 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="language" content="en" />
+        <link href="./assets/5e8e4d9b/css/bootstrap.css" rel="stylesheet">
+<link href="./assets/f5bd4593/solarized_light.css" rel="stylesheet">
+<link href="./assets/8d2f5d25/style.css" rel="stylesheet">
+<script src="./assets/22e0a754/jquery.js"></script>
+<script src="./assets/5e8e4d9b/js/bootstrap.js"></script>
+<script src="./assets/9fb5f764/jssearch.js"></script>    <title>UserController, app\controllers\UserController - Yii Framework 2.0 API Documentation</title>
+</head>
+<body>
+
+<div class="wrap">
+    <nav id="w68" class="navbar-inverse navbar-fixed-top navbar"><div class="navbar-header"><button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#w68-collapse"><span class="sr-only">Toggle navigation</span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span></button><a class="navbar-brand" href="./index.html">Yii Framework 2.0 API Documentation</a></div><div id="w68-collapse" class="collapse navbar-collapse"><ul id="w69" class="navbar-nav nav"><li><a href="./index.html">Class reference</a></li></ul><div class="navbar-form navbar-left" role="search">
+  <div class="form-group">
+    <input id="searchbox" type="text" class="form-control" placeholder="Search">
+  </div>
+</div>
+</div></nav>
+    <div id="search-resultbox" style="display: none;" class="modal-content">
+        <ul id="search-results">
+        </ul>
+    </div>
+
+    
+<div class="row">
+    <div class="col-md-3">
+                <div id="navigation" class="list-group"><a class="list-group-item" href="#navigation-65" data-toggle="collapse" data-parent="#navigation">app\components\errors <b class="caret"></b></a><div id="navigation-65" class="submenu panel-collapse collapse"><a class="list-group-item" href="./app-components-errors-errorscomponent.html">ErrorsComponent</a></div>
+<a class="list-group-item active" href="#navigation-66" data-toggle="collapse" data-parent="#navigation">app\controllers <b class="caret"></b></a><div id="navigation-66" class="submenu panel-collapse collapse in"><a class="list-group-item" href="./app-controllers-productocontroller.html">ProductoController</a>
+<a class="list-group-item" href="./app-controllers-solicitudcontroller.html">SolicitudController</a>
+<a class="list-group-item" href="./app-controllers-sugerenciacontroller.html">SugerenciaController</a>
+<a class="list-group-item active" href="./app-controllers-usercontroller.html">UserController</a></div>
+<a class="list-group-item" href="#navigation-67" data-toggle="collapse" data-parent="#navigation">app\models <b class="caret"></b></a><div id="navigation-67" class="submenu panel-collapse collapse"><a class="list-group-item" href="./app-models-calificacion.html">Calificacion</a>
+<a class="list-group-item" href="./app-models-categoria.html">Categoria</a>
+<a class="list-group-item" href="./app-models-changepassword.html">ChangePassword</a>
+<a class="list-group-item" href="./app-models-ciudad.html">Ciudad</a>
+<a class="list-group-item" href="./app-models-favorito.html">Favorito</a>
+<a class="list-group-item" href="./app-models-foto.html">Foto</a>
+<a class="list-group-item" href="./app-models-login.html">Login</a>
+<a class="list-group-item" href="./app-models-producto.html">Producto</a>
+<a class="list-group-item" href="./app-models-signup.html">Signup</a>
+<a class="list-group-item" href="./app-models-solicitud.html">Solicitud</a>
+<a class="list-group-item" href="./app-models-sugerencia.html">Sugerencia</a>
+<a class="list-group-item" href="./app-models-user.html">User</a></div></div>    </div>
+    <div class="col-md-9 api-content" role="main">
+        <h1>Class app\controllers\UserController</h1>
+<div class="top-nav">
+    <a href="index.html">All Classes</a>
+                | <a href="#methods">Methods</a>
+            </div>
+
+<table class="summaryTable docClass table table-bordered">
+    <colgroup>
+        <col class="col-name" />
+        <col class="col-value" />
+    </colgroup>
+            <tr><th>Inheritance</th><td><a href="app-controllers-usercontroller.html">app\controllers\UserController</a> &raquo;
+yii\rest\Controller</td></tr>
+                                        </table>
+
+<div class="class-description">
+    <p><strong>Controlador de usuario para autentificaciones y registro de usuario interesado.</strong></p>
+    <p>Mediante ete controlador se puede autentificar usuarios de tipo estudiante o
+interesado, tambien se pude registrar usuarios de tipo interesado.<br>
+Usa el tipo de autentificación <code>Bearer Token</code> para autorizar la respuesta de un
+determinado recurso. Tambien la forma de respuesta se efectua en formato JSON
+de la siguiente manera:<br></p>
+<pre><code class="hljs bash">{
+    <span class="hljs-string">"success"</span>:<span class="hljs-literal">true</span>|<span class="hljs-literal">false</span>,
+    <span class="hljs-string">"data"</span>:{
+         [RESULTADO]
+    }
+}
+</code></pre>
+<p>Donde el atributo <code>success</code> es de tipo boolean para deternimar si un recurso es satisfactorio
+o falso si se ha tenido algun inconveniente como acceso no autorizado, validacion, etc.
+y el atributo <code>data</code> es de tipo Mixto es donde se almacena el resultado de cada recuro que se
+quiera solicitar.<br>
+En caso de ocurrir una excepcion el resutlado dara un success false y un data con un mensaje, nombre
+de la excepcion y el codigo de error, teniendo un
+contenido similar a este ejemplo:<br></p>
+<pre><code class="hljs json">{
+    "<span class="hljs-attribute">success</span>": <span class="hljs-value"><span class="hljs-literal">false</span></span>,
+    "<span class="hljs-attribute">data</span>": <span class="hljs-value">{
+        "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"Unauthorized"</span></span>,
+        "<span class="hljs-attribute">message</span>": <span class="hljs-value"><span class="hljs-string">"El Estudiante no es valido"</span></span>,
+        "<span class="hljs-attribute">code</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+        "<span class="hljs-attribute">status</span>": <span class="hljs-value"><span class="hljs-number">401</span></span>,
+        "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"yii\\web\\UnauthorizedHttpException"</span>
+    </span>}
+</span>}
+</code></pre>
+
+    </div>
+
+<a id="properties"></a>
+
+<a id="methods"></a>
+
+<div class="summary doc-method">
+<h2>Public Methods</h2>
+
+<p><a href="#" class="toggle">Hide inherited methods</a></p>
+
+<table class="summary-table table table-striped table-bordered table-hover">
+<colgroup>
+    <col class="col-method" />
+    <col class="col-description" />
+    <col class="col-defined" />
+</colgroup>
+<tr>
+  <th>Method</th><th>Description</th><th>Defined By</th>
+</tr>
+        <tr id="actionCalificar()">
+        <td><a href="app-controllers-usercontroller.html#actionCalificar()-detail">actionCalificar()</a></td>
+        <td>Califica a un usuario.</td>
+        <td><a href="app-controllers-usercontroller.html">app\controllers\UserController</a></td>
+    </tr>
+            <tr id="actionCambiarFoto()">
+        <td><a href="app-controllers-usercontroller.html#actionCambiarFoto()-detail">actionCambiarFoto()</a></td>
+        <td>Agrega o modifica una imagen de perfil para el ususario.</td>
+        <td><a href="app-controllers-usercontroller.html">app\controllers\UserController</a></td>
+    </tr>
+            <tr id="actionCambiarPassword()">
+        <td><a href="app-controllers-usercontroller.html#actionCambiarPassword()-detail">actionCambiarPassword()</a></td>
+        <td>Cambia la contraseña de un usuario.</td>
+        <td><a href="app-controllers-usercontroller.html">app\controllers\UserController</a></td>
+    </tr>
+            <tr id="actionCreateFavorito()">
+        <td><a href="app-controllers-usercontroller.html#actionCreateFavorito()-detail">actionCreateFavorito()</a></td>
+        <td>Agrega un producto a favorito.</td>
+        <td><a href="app-controllers-usercontroller.html">app\controllers\UserController</a></td>
+    </tr>
+            <tr id="actionDeleteFavorito()">
+        <td><a href="app-controllers-usercontroller.html#actionDeleteFavorito()-detail">actionDeleteFavorito()</a></td>
+        <td>Remueve un producto favorito.</td>
+        <td><a href="app-controllers-usercontroller.html">app\controllers\UserController</a></td>
+    </tr>
+            <tr id="actionFavoritos()">
+        <td><a href="app-controllers-usercontroller.html#actionFavoritos()-detail">actionFavoritos()</a></td>
+        <td>Muestra los favoritos.</td>
+        <td><a href="app-controllers-usercontroller.html">app\controllers\UserController</a></td>
+    </tr>
+            <tr id="actionIndex()">
+        <td><a href="app-controllers-usercontroller.html#actionIndex()-detail">actionIndex()</a></td>
+        <td>Accion de la pagina principal</td>
+        <td><a href="app-controllers-usercontroller.html">app\controllers\UserController</a></td>
+    </tr>
+            <tr id="actionLogin()">
+        <td><a href="app-controllers-usercontroller.html#actionLogin()-detail">actionLogin()</a></td>
+        <td>Accion para autorizar a un usuario.</td>
+        <td><a href="app-controllers-usercontroller.html">app\controllers\UserController</a></td>
+    </tr>
+            <tr id="actionModificarMensajeSolicitud()">
+        <td><a href="app-controllers-usercontroller.html#actionModificarMensajeSolicitud()-detail">actionModificarMensajeSolicitud()</a></td>
+        <td>Modifica el mensaje de solicitud.</td>
+        <td><a href="app-controllers-usercontroller.html">app\controllers\UserController</a></td>
+    </tr>
+            <tr id="actionModificarPerfil()">
+        <td><a href="app-controllers-usercontroller.html#actionModificarPerfil()-detail">actionModificarPerfil()</a></td>
+        <td>Modifica los datos del usuario.</td>
+        <td><a href="app-controllers-usercontroller.html">app\controllers\UserController</a></td>
+    </tr>
+            <tr id="actionOcultarDato()">
+        <td><a href="app-controllers-usercontroller.html#actionOcultarDato()-detail">actionOcultarDato()</a></td>
+        <td>Ocultar telefono o email.</td>
+        <td><a href="app-controllers-usercontroller.html">app\controllers\UserController</a></td>
+    </tr>
+            <tr id="actionPerfil()">
+        <td><a href="app-controllers-usercontroller.html#actionPerfil()-detail">actionPerfil()</a></td>
+        <td>Muestra los datos del usuario.</td>
+        <td><a href="app-controllers-usercontroller.html">app\controllers\UserController</a></td>
+    </tr>
+            <tr id="actionSignup()">
+        <td><a href="app-controllers-usercontroller.html#actionSignup()-detail">actionSignup()</a></td>
+        <td>Accion para registrar un usuario desde la aplicacion mobil.</td>
+        <td><a href="app-controllers-usercontroller.html">app\controllers\UserController</a></td>
+    </tr>
+            <tr id="actionVendedorPerfil()">
+        <td><a href="app-controllers-usercontroller.html#actionVendedorPerfil()-detail">actionVendedorPerfil()</a></td>
+        <td>Muestra el perfil del vendedor.</td>
+        <td><a href="app-controllers-usercontroller.html">app\controllers\UserController</a></td>
+    </tr>
+            <tr id="behaviors()">
+        <td><a href="app-controllers-usercontroller.html#behaviors()-detail">behaviors()</a></td>
+        <td></td>
+        <td><a href="app-controllers-usercontroller.html">app\controllers\UserController</a></td>
+    </tr>
+    </table>
+</div>
+
+<a id="events"></a>
+
+<a id="constants"></a>
+
+<h2>Method Details</h2>
+
+<div class="method-doc">
+
+    <div class="detail-header h3" id="actionCalificar()-detail">
+        <a href="#" class="tool-link" title="go to top"><span class="glyphicon glyphicon-arrow-up"></span></a>
+        <a class="tool-link hash" href="app-controllers-usercontroller.html#actionCalificar()-detail" title="direct link to this method"><span class="glyphicon icon-hash"></span></a>
+        
+        actionCalificar()
+        <span class="detail-header-tag small">
+            public                                    method
+                    </span>
+    </div>
+
+    
+    <div class="doc-description">
+        <p><strong>Califica a un usuario.</strong></p>
+
+        <p>registra la calificacion de o puntaje que se quiere darle a un usuario vendedor.
+<code>Url</code>: /user/calificar <br>
+<code>method</code>: post <br>
+<code>Content-Type</code>: application/json <br>
+<code>Autorization</code>: Bearer[access_token] <br>
+<code>body</code>: <br></p>
+<pre><code class="hljs css"> <span class="hljs-rules">{
+     <span class="hljs-rule"><span class="hljs-attribute">calificacion</span>:<span class="hljs-value"><span class="hljs-string">"5"</span>
+     usuario_id:<span class="hljs-string">"180"</span>
+ </span></span></span>}
+</code></pre>
+
+            </div>
+
+    <table class="detail-table table table-striped table-bordered table-hover">
+        <tr><td colspan="3" class="signature"><span class="signature-defs">public</span> <span class="signature-type">\app\controllers\JSON</span> <strong><a href="app-controllers-usercontroller.html#actionCalificar()-detail">actionCalificar</a></strong> ( )</td></tr>
+                                                <tr>
+                  <th class="param-name-col">return</th>
+                  <td class="param-type-col">\app\controllers\JSON</td>
+                  <td class="param-desc-col"><p>,
+Ejemplo de lo que retorna:</p>
+<pre><code class="hljs json">{
+    "<span class="hljs-attribute">calificacion</span>": <span class="hljs-value"><span class="hljs-string">"5"</span></span>,
+    "<span class="hljs-attribute">votador</span>": <span class="hljs-value"><span class="hljs-number">897</span></span>,
+    "<span class="hljs-attribute">app_user_id</span>": <span class="hljs-value"><span class="hljs-string">"897"</span></span>,
+    "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">5</span>
+</span>}
+</code></pre>
+</td>
+                </tr>
+                                        <tr>
+                  <th class="param-name-col">throws</th>
+                  <td class="param-type-col">\yii\web\UnprocessableEntityHttpException</td>
+                  <td class="param-desc-col"><p>errore de validacion</p>
+</td>
+                </tr>
+                        </table>
+
+<!--	-->
+
+    <div class="detail-header h3" id="actionCambiarFoto()-detail">
+        <a href="#" class="tool-link" title="go to top"><span class="glyphicon glyphicon-arrow-up"></span></a>
+        <a class="tool-link hash" href="app-controllers-usercontroller.html#actionCambiarFoto()-detail" title="direct link to this method"><span class="glyphicon icon-hash"></span></a>
+        
+        actionCambiarFoto()
+        <span class="detail-header-tag small">
+            public                                    method
+                    </span>
+    </div>
+
+    
+    <div class="doc-description">
+        <p><strong>Agrega o modifica una imagen de perfil para el ususario.</strong></p>
+
+        <p>Agrega o modifica una imagen de perfil para un usuario de mediante una cadena
+decodificada en 64 bits para guardarla como un archivo con extencion .jpg</p>
+<p><code>Url</code>: /user/cambiar-foto <br>
+<code>method</code>: post <br>
+<code>Content-Type</code>: application/json <br>
+<code>Autorization</code>: Bearer[access_token] <br>
+<code>body</code>: <br></p>
+<pre><code class="hljs json">{
+    "<span class="hljs-attribute">foto</span>": <span class="hljs-value"><span class="hljs-string">"data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEASABIAAD..."</span>
+</span>}
+</code></pre>
+
+            </div>
+
+    <table class="detail-table table table-striped table-bordered table-hover">
+        <tr><td colspan="3" class="signature"><span class="signature-defs">public</span> <span class="signature-type"><a href="http://www.php.net/language.types.string">string</a></span> <strong><a href="app-controllers-usercontroller.html#actionCambiarFoto()-detail">actionCambiarFoto</a></strong> ( )</td></tr>
+                                                <tr>
+                  <th class="param-name-col">return</th>
+                  <td class="param-type-col"><a href="http://www.php.net/language.types.string">string</a></td>
+                  <td class="param-desc-col"><p>Ruta de la imagen mas el nombre de la imagen,
+Ejemplo de lo que retorna:</p>
+<pre><code class="hljs bash">{
+    <span class="hljs-string">"http://api.cambalachebolivia.com/uploads/usuarios/fotoperfil/usuario_897190826104626.jpg"</span>
+}
+</code></pre>
+</td>
+                </tr>
+                                        <tr>
+                  <th class="param-name-col">throws</th>
+                  <td class="param-type-col">\yii\web\UnprocessableEntityHttpException</td>
+                  <td class="param-desc-col"><p>errore de validacion</p>
+</td>
+                </tr>
+                        </table>
+
+<!--	-->
+
+    <div class="detail-header h3" id="actionCambiarPassword()-detail">
+        <a href="#" class="tool-link" title="go to top"><span class="glyphicon glyphicon-arrow-up"></span></a>
+        <a class="tool-link hash" href="app-controllers-usercontroller.html#actionCambiarPassword()-detail" title="direct link to this method"><span class="glyphicon icon-hash"></span></a>
+        
+        actionCambiarPassword()
+        <span class="detail-header-tag small">
+            public                                    method
+                    </span>
+    </div>
+
+    
+    <div class="doc-description">
+        <p><strong>Cambia la contraseña de un usuario.</strong></p>
+
+        <p>Cambia la contraseña de tipo usuario y de tipo estudiante tambien.</p>
+<p><code>Url</code>: /user/cambiar-password?id=[id del usuario] <br>
+<code>method</code>: post <br>
+<code>Content-Type</code>: application/json <br>
+<code>Autorization</code>: Bearer[access_token] <br>
+<code>body</code>: <br></p>
+<pre><code class="hljs json">{
+    "<span class="hljs-attribute">ChangePassword</span>":<span class="hljs-value">{
+    	   "<span class="hljs-attribute">oldPassword</span>":<span class="hljs-value"><span class="hljs-string">"123"</span></span>,
+    	   "<span class="hljs-attribute">newPassword</span>":<span class="hljs-value"><span class="hljs-string">"123456"</span></span>,
+    	   "<span class="hljs-attribute">retypePassword</span>":<span class="hljs-value"><span class="hljs-string">"123456"</span></span>,
+    }
+</span>}
+</code></pre>
+
+            </div>
+
+    <table class="detail-table table table-striped table-bordered table-hover">
+        <tr><td colspan="3" class="signature"><span class="signature-defs">public</span> <span class="signature-type">\app\controllers\JSON</span> <strong><a href="app-controllers-usercontroller.html#actionCambiarPassword()-detail">actionCambiarPassword</a></strong> ( <span style="color: #0000BB">$id</span> )</td></tr>
+                                    <tr>
+                  <td class="param-name-col"><span style="color: #0000BB">$id</span></td>
+                  <td class="param-type-col"><a href="http://www.php.net/language.types.integer">integer</a></td>
+                  <td class="param-desc-col"><p>Id de usuario de la tabla app_user</p>
+</td>
+                </tr>
+                                        <tr>
+                  <th class="param-name-col">return</th>
+                  <td class="param-type-col">\app\controllers\JSON</td>
+                  <td class="param-desc-col"><p>Retorna solo el mensaje de existo</p>
+</td>
+                </tr>
+                                        <tr>
+                  <th class="param-name-col">throws</th>
+                  <td class="param-type-col">\yii\web\UnprocessableEntityHttpException</td>
+                  <td class="param-desc-col"><p>errore de validacion</p>
+</td>
+                </tr>
+                        </table>
+
+<!--	-->
+
+    <div class="detail-header h3" id="actionCreateFavorito()-detail">
+        <a href="#" class="tool-link" title="go to top"><span class="glyphicon glyphicon-arrow-up"></span></a>
+        <a class="tool-link hash" href="app-controllers-usercontroller.html#actionCreateFavorito()-detail" title="direct link to this method"><span class="glyphicon icon-hash"></span></a>
+        
+        actionCreateFavorito()
+        <span class="detail-header-tag small">
+            public                                    method
+                    </span>
+    </div>
+
+    
+    <div class="doc-description">
+        <p><strong>Agrega un producto a favorito.</strong></p>
+
+        <p>Registra un nuevo modelo de app\models\Favorito para definir que un producto es favorito del usuario</p>
+<p><code>Url</code>: /user/create-favorito?id=[id del producto] <br>
+<code>method</code>: get <br>
+<code>Content-Type</code>: application/json <br>
+<code>Autorization</code>: Bearer[access_token] <br>
+<code>body</code>: <br></p>
+
+            </div>
+
+    <table class="detail-table table table-striped table-bordered table-hover">
+        <tr><td colspan="3" class="signature"><span class="signature-defs">public</span> <span class="signature-type"><a href="http://www.php.net/language.types.string">string</a></span> <strong><a href="app-controllers-usercontroller.html#actionCreateFavorito()-detail">actionCreateFavorito</a></strong> ( <span style="color: #0000BB">$id</span> )</td></tr>
+                                    <tr>
+                  <td class="param-name-col"><span style="color: #0000BB">$id</span></td>
+                  <td class="param-type-col"><a href="http://www.php.net/language.types.integer">integer</a></td>
+                  <td class="param-desc-col"><p>Id del producto</p>
+</td>
+                </tr>
+                                        <tr>
+                  <th class="param-name-col">return</th>
+                  <td class="param-type-col"><a href="http://www.php.net/language.types.string">string</a></td>
+                  <td class="param-desc-col"><p>Mensaje de exito,
+Ejemplo de lo que retorna:</p>
+<pre><code class="hljs bash"><span class="hljs-string">"Agregado correctamente"</span>
+</code></pre>
+</td>
+                </tr>
+                                        <tr>
+                  <th class="param-name-col">throws</th>
+                  <td class="param-type-col">\yii\web\UnprocessableEntityHttpException</td>
+                  <td class="param-desc-col"><p>errore de validacion</p>
+</td>
+                </tr>
+                        </table>
+
+<!--	-->
+
+    <div class="detail-header h3" id="actionDeleteFavorito()-detail">
+        <a href="#" class="tool-link" title="go to top"><span class="glyphicon glyphicon-arrow-up"></span></a>
+        <a class="tool-link hash" href="app-controllers-usercontroller.html#actionDeleteFavorito()-detail" title="direct link to this method"><span class="glyphicon icon-hash"></span></a>
+        
+        actionDeleteFavorito()
+        <span class="detail-header-tag small">
+            public                                    method
+                    </span>
+    </div>
+
+    
+    <div class="doc-description">
+        <p><strong>Remueve un producto favorito.</strong></p>
+
+        <p>Elimina un registro de modelo de app\models\Favorito.</p>
+<p><code>Url</code>: /user/delete-favorito?id=[id de favorito] <br>
+<code>method</code>: get <br>
+<code>Content-Type</code>: application/json <br>
+<code>Autorization</code>: Bearer[access_token] <br>
+<code>body</code>: <br></p>
+
+            </div>
+
+    <table class="detail-table table table-striped table-bordered table-hover">
+        <tr><td colspan="3" class="signature"><span class="signature-defs">public</span> <span class="signature-type"><a href="http://www.php.net/language.types.string">string</a></span> <strong><a href="app-controllers-usercontroller.html#actionDeleteFavorito()-detail">actionDeleteFavorito</a></strong> ( <span style="color: #0000BB">$id</span> )</td></tr>
+                                    <tr>
+                  <td class="param-name-col"><span style="color: #0000BB">$id</span></td>
+                  <td class="param-type-col"><a href="http://www.php.net/language.types.integer">integer</a></td>
+                  <td class="param-desc-col"><p>Id de favorito</p>
+</td>
+                </tr>
+                                        <tr>
+                  <th class="param-name-col">return</th>
+                  <td class="param-type-col"><a href="http://www.php.net/language.types.string">string</a></td>
+                  <td class="param-desc-col"><p>Mensaje de exito,
+Ejemplo de lo que retorna:</p>
+<pre><code class="hljs bash"><span class="hljs-string">"Removido correctamente"</span>
+</code></pre>
+</td>
+                </tr>
+                                        <tr>
+                  <th class="param-name-col">throws</th>
+                  <td class="param-type-col">\yii\web\UnprocessableEntityHttpException</td>
+                  <td class="param-desc-col"><p>errore de validacion</p>
+</td>
+                </tr>
+                        </table>
+
+<!--	-->
+
+    <div class="detail-header h3" id="actionFavoritos()-detail">
+        <a href="#" class="tool-link" title="go to top"><span class="glyphicon glyphicon-arrow-up"></span></a>
+        <a class="tool-link hash" href="app-controllers-usercontroller.html#actionFavoritos()-detail" title="direct link to this method"><span class="glyphicon icon-hash"></span></a>
+        
+        actionFavoritos()
+        <span class="detail-header-tag small">
+            public                                    method
+                    </span>
+    </div>
+
+    
+    <div class="doc-description">
+        <p><strong>Muestra los favoritos.</strong></p>
+
+        <p>Muestra la lista de favoritos del usuario</p>
+<p><code>Url</code>: /user/favoritos <br>
+<code>method</code>: get <br>
+<code>Content-Type</code>: application/json <br>
+<code>Autorization</code>: Bearer[access_token] <br>
+<code>body</code>: <br></p>
+
+            </div>
+
+    <table class="detail-table table table-striped table-bordered table-hover">
+        <tr><td colspan="3" class="signature"><span class="signature-defs">public</span> <span class="signature-type"><a href="http://www.php.net/language.types.string">string</a></span> <strong><a href="app-controllers-usercontroller.html#actionFavoritos()-detail">actionFavoritos</a></strong> ( )</td></tr>
+                                                <tr>
+                  <th class="param-name-col">return</th>
+                  <td class="param-type-col"><a href="http://www.php.net/language.types.string">string</a></td>
+                  <td class="param-desc-col"><p>Mensaje de exito,
+Ejemplo de lo que retorna:</p>
+<pre><code class="hljs javascript">[
+    {
+        <span class="hljs-string">"id"</span>: <span class="hljs-number">6</span>, ( este es el id de favorito)
+        <span class="hljs-string">"producto_id"</span>: <span class="hljs-number">6</span>,
+        <span class="hljs-string">"app_user_id"</span>: <span class="hljs-number">897</span>,
+        <span class="hljs-string">"titulo"</span>: <span class="hljs-string">"shorts caseros"</span>,
+        <span class="hljs-string">"publicado"</span>: <span class="hljs-string">"Publicado"</span>,
+        <span class="hljs-string">"estado_usado"</span>: <span class="hljs-number">1</span>,
+        <span class="hljs-string">"usado"</span>: <span class="hljs-string">"Usado"</span>,
+        <span class="hljs-string">"condicion_uso"</span>: <span class="hljs-number">2</span>,
+        <span class="hljs-string">"descripcion"</span>: <span class="hljs-string">"esta es una descirpcion de un producto de otro producto"</span>,
+        <span class="hljs-string">"short_descripcion"</span>: <span class="hljs-string">"descripcion corta nel"</span>,
+        <span class="hljs-string">"precio"</span>: <span class="hljs-string">"0.00"</span>,
+        <span class="hljs-string">"precio_charlable"</span>: <span class="hljs-number">0</span>,
+        <span class="hljs-string">"vistas"</span>: <span class="hljs-number">0</span>,
+        <span class="hljs-string">"estado_vendido"</span>: <span class="hljs-number">0</span>,
+        <span class="hljs-string">"vendido"</span>: <span class="hljs-string">"No vendido"</span>,
+        <span class="hljs-string">"ciudad"</span>: {
+            <span class="hljs-string">"id"</span>: <span class="hljs-number">2</span>,
+            <span class="hljs-string">"nombre"</span>: <span class="hljs-string">"Beni"</span>,
+            <span class="hljs-string">"foto"</span>: <span class="hljs-literal">null</span>
+        },
+        <span class="hljs-string">"categoria"</span>: {
+            <span class="hljs-string">"id"</span>: <span class="hljs-number">1</span>,
+            <span class="hljs-string">"nombre"</span>: <span class="hljs-string">"Pantalones"</span>,
+            <span class="hljs-string">"foto"</span>: <span class="hljs-string">"https://cambalachebolivia.com/uploads/categorias/categoria_1190813185931.png"</span>
+        },
+        <span class="hljs-string">"usuario"</span>: {
+            <span class="hljs-string">"id"</span>: <span class="hljs-number">897</span>,
+            <span class="hljs-string">"email"</span>: <span class="hljs-string">"juan@juan.com"</span>,
+            <span class="hljs-string">"nombre_completo"</span>: <span class="hljs-string">"willa willa"</span>,
+            <span class="hljs-string">"ciudad"</span>: <span class="hljs-string">"Cochabamba"</span>,
+            <span class="hljs-string">"telefono_celular"</span>: <span class="hljs-string">"7543543"</span>,
+            <span class="hljs-string">"foto"</span>: <span class="hljs-string">"https://api.cambalachebolivia.com/uploads/usuarios/fotoperfil/usuario_897190826104626.jpg"</span>
+        },
+        <span class="hljs-string">"fotos"</span>:<span class="hljs-string">"https://api.cambalachebolivia.com/uploads/productos/producto_6190813020818.jpg"</span>,
+        <span class="hljs-string">"fotos"</span>: [
+            <span class="hljs-string">"https://api.cambalachebolivia.com/uploads/productos/producto_6190813020818.jpg"</span>
+        ]
+    },
+]
+</code></pre>
+</td>
+                </tr>
+                                        <tr>
+                  <th class="param-name-col">throws</th>
+                  <td class="param-type-col">\yii\web\UnprocessableEntityHttpException</td>
+                  <td class="param-desc-col"><p>errore de validacion</p>
+</td>
+                </tr>
+                        </table>
+
+<!--	-->
+
+    <div class="detail-header h3" id="actionIndex()-detail">
+        <a href="#" class="tool-link" title="go to top"><span class="glyphicon glyphicon-arrow-up"></span></a>
+        <a class="tool-link hash" href="app-controllers-usercontroller.html#actionIndex()-detail" title="direct link to this method"><span class="glyphicon icon-hash"></span></a>
+        
+        actionIndex()
+        <span class="detail-header-tag small">
+            public                                    method
+                    </span>
+    </div>
+
+    
+    <div class="doc-description">
+        <p><strong>Accion de la pagina principal</strong></p>
+
+        
+            </div>
+
+    <table class="detail-table table table-striped table-bordered table-hover">
+        <tr><td colspan="3" class="signature"><span class="signature-defs">public</span> <span class="signature-type">\app\controllers\JSON</span> <strong><a href="app-controllers-usercontroller.html#actionIndex()-detail">actionIndex</a></strong> ( )</td></tr>
+            </table>
+
+<!--	-->
+
+    <div class="detail-header h3" id="actionLogin()-detail">
+        <a href="#" class="tool-link" title="go to top"><span class="glyphicon glyphicon-arrow-up"></span></a>
+        <a class="tool-link hash" href="app-controllers-usercontroller.html#actionLogin()-detail" title="direct link to this method"><span class="glyphicon icon-hash"></span></a>
+        
+        actionLogin()
+        <span class="detail-header-tag small">
+            public                                    method
+                    </span>
+    </div>
+
+    
+    <div class="doc-description">
+        <p><strong>Accion para autorizar a un usuario.</strong></p>
+
+        <p>Tambien algo importante de esta accion es que una ves se obtenga el resultado satisfactorio debe de
+capturarse el objeto del usuario, y aun mas IMPORTANTE capturar el valor del atributo <code>access_token</code> que
+sirve como llave para solicitar recursos.<br></p>
+<p><code>Url</code>: /user/login <br>
+<code>method</code>: post <br>
+<code>Content-Type</code>: application/json <br>
+<code>Autorization</code>: none <br>
+<code>body</code>: <br></p>
+<pre><code class="hljs bash">{
+    <span class="hljs-string">"tipo_login"</span>:<span class="hljs-string">"[value:integer (1=normal)]"</span>
+    <span class="hljs-string">"email"</span>:<span class="hljs-string">"[value]"</span>,
+    <span class="hljs-string">"password"</span>:<span class="hljs-string">"[value]"</span>
+}
+
+o
+
+{
+    <span class="hljs-string">"tipo_login"</span>:<span class="hljs-string">"[value:integer (3=gmail)]"</span>
+    <span class="hljs-string">"email"</span>:<span class="hljs-string">"[value]"</span>,
+    <span class="hljs-string">"nombre_completo"</span>:<span class="hljs-string">"[value]"</span>
+    <span class="hljs-string">"telefono_celular"</span>:<span class="hljs-string">"[value]"</span>
+}
+
+o
+
+{
+    <span class="hljs-string">"tipo_login"</span>:<span class="hljs-string">"[value:integer (2=facebook)]"</span>
+    <span class="hljs-string">"email"</span>:<span class="hljs-string">"[value] opcional"</span>,
+    <span class="hljs-string">"telefono_celular"</span>:<span class="hljs-string">"[value] opcional"</span>  PERO UNO DELOS DOS SI ES OBLIGATORIO
+    <span class="hljs-string">"nombre_completo"</span>:<span class="hljs-string">"[value]"</span>
+}
+</code></pre>
+
+            </div>
+
+    <table class="detail-table table table-striped table-bordered table-hover">
+        <tr><td colspan="3" class="signature"><span class="signature-defs">public</span> <span class="signature-type">\app\controllers\JSON</span> <strong><a href="app-controllers-usercontroller.html#actionLogin()-detail">actionLogin</a></strong> ( )</td></tr>
+                                                <tr>
+                  <th class="param-name-col">return</th>
+                  <td class="param-type-col">\app\controllers\JSON</td>
+                  <td class="param-desc-col"><p>Ejemplo del resultado:</p>
+<pre><code class="hljs json">{
+    "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-string">"903"</span></span>,
+    "<span class="hljs-attribute">auth_key</span>": <span class="hljs-value"><span class="hljs-string">"8JtJb9YLJxB1st6pAUicnu3J9BnlYO3P"</span></span>,
+    "<span class="hljs-attribute">password_hash</span>": <span class="hljs-value"><span class="hljs-string">"$2y$13$S0U011wZ.F7wbyW4/zPKK.MNCZe6JYS4zClQAH7uHp0sBb5WJw.yC"</span></span>,
+    "<span class="hljs-attribute">password_reset_token</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
+    "<span class="hljs-attribute">email</span>": <span class="hljs-value"><span class="hljs-string">"william.mg.dev@gmail.com"</span></span>,
+    "<span class="hljs-attribute">access_token</span>": <span class="hljs-value"><span class="hljs-string">"ebhE85L3gf1-r8_VpqmUBpmtcm2rdyrg"</span></span>,
+    "<span class="hljs-attribute">nombre_completo</span>": <span class="hljs-value"><span class="hljs-string">"willam mg"</span></span>,
+    "<span class="hljs-attribute">ciudad</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
+    "<span class="hljs-attribute">telefono_celular</span>": <span class="hljs-value"><span class="hljs-string">"75977665"</span></span>,
+    "<span class="hljs-attribute">tipo_login</span>": <span class="hljs-value"><span class="hljs-string">"3"</span></span>,
+    "<span class="hljs-attribute">foto</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
+    "<span class="hljs-attribute">respuesta_solicitud</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
+    "<span class="hljs-attribute">status</span>": <span class="hljs-value"><span class="hljs-string">"10"</span></span>,
+    "<span class="hljs-attribute">created_at</span>": <span class="hljs-value"><span class="hljs-string">"1570463895"</span></span>,
+    "<span class="hljs-attribute">updated_at</span>": <span class="hljs-value"><span class="hljs-string">"1570463895"</span></span>,
+    "<span class="hljs-attribute">ver_telefono</span>": <span class="hljs-value"><span class="hljs-string">"0"</span></span>,
+    "<span class="hljs-attribute">ver_email</span>": <span class="hljs-value"><span class="hljs-string">"0"</span>
+</span>}
+</code></pre>
+</td>
+                </tr>
+                                    </table>
+
+<!--	-->
+
+    <div class="detail-header h3" id="actionModificarMensajeSolicitud()-detail">
+        <a href="#" class="tool-link" title="go to top"><span class="glyphicon glyphicon-arrow-up"></span></a>
+        <a class="tool-link hash" href="app-controllers-usercontroller.html#actionModificarMensajeSolicitud()-detail" title="direct link to this method"><span class="glyphicon icon-hash"></span></a>
+        
+        actionModificarMensajeSolicitud()
+        <span class="detail-header-tag small">
+            public                                    method
+                    </span>
+    </div>
+
+    
+    <div class="doc-description">
+        <p><strong>Modifica el mensaje de solicitud.</strong></p>
+
+        <p>Meodifica el mensaje de solicitud que viene por defecto a momento de realizar la solicitud de un producto</p>
+<p><code>Url</code>: /user/modificar-mensaje-solicitud <br>
+<code>method</code>: post <br>
+<code>Content-Type</code>: application/json <br>
+<code>Autorization</code>: Bearer[access_token] <br>
+<code>body</code>: <br></p>
+<pre><code class="hljs json">{
+    "<span class="hljs-attribute">mensaje_solicitud</span>":<span class="hljs-value"><span class="hljs-string">"esta disponible ?"</span>
+</span>}
+</code></pre>
+
+            </div>
+
+    <table class="detail-table table table-striped table-bordered table-hover">
+        <tr><td colspan="3" class="signature"><span class="signature-defs">public</span> <span class="signature-type"><a href="http://www.php.net/language.types.string">string</a></span> <strong><a href="app-controllers-usercontroller.html#actionModificarMensajeSolicitud()-detail">actionModificarMensajeSolicitud</a></strong> ( )</td></tr>
+                                                <tr>
+                  <th class="param-name-col">return</th>
+                  <td class="param-type-col"><a href="http://www.php.net/language.types.string">string</a></td>
+                  <td class="param-desc-col"><p>Mensaje de exito,
+Ejemplo de lo que retorna:</p>
+<pre><code class="hljs bash"><span class="hljs-string">"Respuesta modificada correctamente"</span>
+</code></pre>
+</td>
+                </tr>
+                                        <tr>
+                  <th class="param-name-col">throws</th>
+                  <td class="param-type-col">\yii\web\UnprocessableEntityHttpException</td>
+                  <td class="param-desc-col"><p>errore de validacion</p>
+</td>
+                </tr>
+                        </table>
+
+<!--	-->
+
+    <div class="detail-header h3" id="actionModificarPerfil()-detail">
+        <a href="#" class="tool-link" title="go to top"><span class="glyphicon glyphicon-arrow-up"></span></a>
+        <a class="tool-link hash" href="app-controllers-usercontroller.html#actionModificarPerfil()-detail" title="direct link to this method"><span class="glyphicon icon-hash"></span></a>
+        
+        actionModificarPerfil()
+        <span class="detail-header-tag small">
+            public                                    method
+                    </span>
+    </div>
+
+    
+    <div class="doc-description">
+        <p><strong>Modifica los datos del usuario.</strong></p>
+
+        <p><code>Url</code>: /user/modificar-perfil <br>
+<code>method</code>: post <br>
+<code>Content-Type</code>: application/json <br>
+<code>Autorization</code>: Bearer[access_token] <br>
+<code>body</code>: <br></p>
+<pre><code class="hljs json">{
+    "<span class="hljs-attribute">email</span>": <span class="hljs-value"><span class="hljs-string">"juana@gmail.com"</span></span>,
+    "<span class="hljs-attribute">nombre_completo</span>": <span class="hljs-value"><span class="hljs-string">"juana la cubana"</span></span>,
+    "<span class="hljs-attribute">ciudad</span>": <span class="hljs-value"><span class="hljs-string">"la paz"</span></span>,
+    "<span class="hljs-attribute">telefono_celular</span>": <span class="hljs-value"><span class="hljs-string">"7456465"</span></span>,
+    "<span class="hljs-attribute">respuesta_solicitud</span>": <span class="hljs-value"><span class="hljs-string">"estadisponible hola ?"</span>
+</span>}
+</code></pre>
+
+            </div>
+
+    <table class="detail-table table table-striped table-bordered table-hover">
+        <tr><td colspan="3" class="signature"><span class="signature-defs">public</span> <span class="signature-type">\app\controllers\JSON,</span> <strong><a href="app-controllers-usercontroller.html#actionModificarPerfil()-detail">actionModificarPerfil</a></strong> ( )</td></tr>
+                                                <tr>
+                  <th class="param-name-col">return</th>
+                  <td class="param-type-col">\app\controllers\JSON,</td>
+                  <td class="param-desc-col"><p>Ejemplo de lo que retorna:</p>
+<pre><code class="hljs json">{
+    "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">897</span></span>,
+    "<span class="hljs-attribute">email</span>": <span class="hljs-value"><span class="hljs-string">"juana@gmail.com"</span></span>,
+    "<span class="hljs-attribute">nombre_completo</span>": <span class="hljs-value"><span class="hljs-string">"juana la cubana"</span></span>,
+    "<span class="hljs-attribute">ciudad</span>": <span class="hljs-value"><span class="hljs-string">"la paz"</span></span>,
+    "<span class="hljs-attribute">telefono_celular</span>": <span class="hljs-value"><span class="hljs-string">"7456465"</span></span>,
+    "<span class="hljs-attribute">foto</span>": <span class="hljs-value"><span class="hljs-string">"https://api.cambalachebolivia.com/uploads/usuarios/fotoperfil/usuario_897190826104626.jpg"</span></span>,
+    "<span class="hljs-attribute">rating</span>": <span class="hljs-value"><span class="hljs-number">3.5</span>
+</span>}
+</code></pre>
+</td>
+                </tr>
+                                        <tr>
+                  <th class="param-name-col">throws</th>
+                  <td class="param-type-col">\yii\web\UnprocessableEntityHttpException</td>
+                  <td class="param-desc-col"><p>errore de validacion</p>
+</td>
+                </tr>
+                        </table>
+
+<!--	-->
+
+    <div class="detail-header h3" id="actionOcultarDato()-detail">
+        <a href="#" class="tool-link" title="go to top"><span class="glyphicon glyphicon-arrow-up"></span></a>
+        <a class="tool-link hash" href="app-controllers-usercontroller.html#actionOcultarDato()-detail" title="direct link to this method"><span class="glyphicon icon-hash"></span></a>
+        
+        actionOcultarDato()
+        <span class="detail-header-tag small">
+            public                                    method
+                    </span>
+    </div>
+
+    
+    <div class="doc-description">
+        <p><strong>Ocultar telefono o email.</strong></p>
+
+        <p><code>Url</code>: /user/ocultar-dato <br>
+<code>method</code>: post <br>
+<code>Content-Type</code>: application/json <br>
+<code>Autorization</code>: Bearer[access_token] <br>
+<code>body</code>: <br></p>
+<pre><code class="hljs json">{
+    "<span class="hljs-attribute">dato</span>":<span class="hljs-value"><span class="hljs-string">"telefono_celular"</span> o <span class="hljs-string">"email"</span>
+</span>}
+</code></pre>
+
+            </div>
+
+    <table class="detail-table table table-striped table-bordered table-hover">
+        <tr><td colspan="3" class="signature"><span class="signature-defs">public</span> <span class="signature-type">\app\controllers\JSON</span> <strong><a href="app-controllers-usercontroller.html#actionOcultarDato()-detail">actionOcultarDato</a></strong> ( )</td></tr>
+                                                <tr>
+                  <th class="param-name-col">return</th>
+                  <td class="param-type-col">\app\controllers\JSON</td>
+                  <td class="param-desc-col"><p>Perfil de usario,
+Ejemplo de lo que retorna:</p>
+<pre><code class="hljs json">{
+    "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">897</span></span>,
+    "<span class="hljs-attribute">email</span>": <span class="hljs-value"><span class="hljs-string">"juan@juan.com"</span></span>,
+    "<span class="hljs-attribute">nombre_completo</span>": <span class="hljs-value"><span class="hljs-string">"willa willa"</span></span>,
+    "<span class="hljs-attribute">ciudad</span>": <span class="hljs-value"><span class="hljs-string">"Cochabamba"</span></span>,
+    "<span class="hljs-attribute">telefono_celular</span>": <span class="hljs-value"><span class="hljs-string">"7543543"</span></span>,
+    "<span class="hljs-attribute">foto</span>": <span class="hljs-value"><span class="hljs-string">"https://api.cambalachebolivia.com/uploads/usuarios/fotoperfil/usuario_897190813031726.jpg"</span></span>,
+    "<span class="hljs-attribute">rating</span>": <span class="hljs-value"><span class="hljs-number">0</span>
+</span>}
+</code></pre>
+</td>
+                </tr>
+                                        <tr>
+                  <th class="param-name-col">throws</th>
+                  <td class="param-type-col">\yii\web\UnprocessableEntityHttpException</td>
+                  <td class="param-desc-col"><p>errore de validacion</p>
+</td>
+                </tr>
+                        </table>
+
+<!--	-->
+
+    <div class="detail-header h3" id="actionPerfil()-detail">
+        <a href="#" class="tool-link" title="go to top"><span class="glyphicon glyphicon-arrow-up"></span></a>
+        <a class="tool-link hash" href="app-controllers-usercontroller.html#actionPerfil()-detail" title="direct link to this method"><span class="glyphicon icon-hash"></span></a>
+        
+        actionPerfil()
+        <span class="detail-header-tag small">
+            public                                    method
+                    </span>
+    </div>
+
+    
+    <div class="doc-description">
+        <p><strong>Muestra los datos del usuario.</strong></p>
+
+        <p>Muestra los datos del modelo app\models\User de latabla usuario</p>
+<p><code>Url</code>: /user/perfil <br>
+<code>method</code>: get <br>
+<code>Content-Type</code>: application/json <br>
+<code>Autorization</code>: Bearer[access_token] <br>
+<code>body</code>: <br></p>
+
+            </div>
+
+    <table class="detail-table table table-striped table-bordered table-hover">
+        <tr><td colspan="3" class="signature"><span class="signature-defs">public</span> <span class="signature-type">\app\controllers\JSON</span> <strong><a href="app-controllers-usercontroller.html#actionPerfil()-detail">actionPerfil</a></strong> ( )</td></tr>
+                                                <tr>
+                  <th class="param-name-col">return</th>
+                  <td class="param-type-col">\app\controllers\JSON</td>
+                  <td class="param-desc-col"><p>Ejemp lo del resultado :</p>
+<pre><code class="hljs json">{
+    "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">897</span></span>,
+    "<span class="hljs-attribute">email</span>": <span class="hljs-value"><span class="hljs-string">"juan@juan.com"</span></span>,
+    "<span class="hljs-attribute">nombre_completo</span>": <span class="hljs-value"><span class="hljs-string">"willa willa"</span></span>,
+    "<span class="hljs-attribute">ciudad</span>": <span class="hljs-value"><span class="hljs-string">"Cochabamba"</span></span>,
+    "<span class="hljs-attribute">telefono_celular</span>": <span class="hljs-value"><span class="hljs-string">"7543543"</span></span>,
+    "<span class="hljs-attribute">foto</span>": <span class="hljs-value"><span class="hljs-string">"https://api.cambalachebolivia.com/uploads/usuarios/fotoperfil/usuario_897190813031726.jpg"</span></span>,
+    "<span class="hljs-attribute">rating</span>": <span class="hljs-value"><span class="hljs-number">0</span>
+</span>}
+</code></pre>
+</td>
+                </tr>
+                                    </table>
+
+<!--	-->
+
+    <div class="detail-header h3" id="actionSignup()-detail">
+        <a href="#" class="tool-link" title="go to top"><span class="glyphicon glyphicon-arrow-up"></span></a>
+        <a class="tool-link hash" href="app-controllers-usercontroller.html#actionSignup()-detail" title="direct link to this method"><span class="glyphicon icon-hash"></span></a>
+        
+        actionSignup()
+        <span class="detail-header-tag small">
+            public                                    method
+                    </span>
+    </div>
+
+    
+    <div class="doc-description">
+        <p><strong>Accion para registrar un usuario desde la aplicacion mobil.</strong></p>
+
+        <p>Registra un nuevo usuario del modelo <code>app\models\User</code></p>
+<p><code>Url</code>: /user/signup <br>
+<code>method</code>: post <br>
+<code>Content-Type</code>: application/json <br>
+<code>Autorization</code>: none <br>
+<code>body</code>: <br></p>
+<pre><code class="hljs json">{
+    	   "<span class="hljs-attribute">nombre_completo</span>":<span class="hljs-value"><span class="hljs-string">"juan"</span></span>,
+    	   "<span class="hljs-attribute">telefono_celular</span>":<span class="hljs-value"><span class="hljs-string">"43243432"</span></span>,
+    	   "<span class="hljs-attribute">ciudad</span>":<span class="hljs-value"><span class="hljs-string">"juan"</span></span>,
+    	   "<span class="hljs-attribute">email</span>":<span class="hljs-value"><span class="hljs-string">"hodsdl@aqcom.com"</span></span>,
+    	   "<span class="hljs-attribute">password</span>":<span class="hljs-value"><span class="hljs-string">"123456"</span></span>,
+    	   "<span class="hljs-attribute">retypePassword</span>":<span class="hljs-value"><span class="hljs-string">"123456"</span>
+</span>}
+</code></pre>
+
+            </div>
+
+    <table class="detail-table table table-striped table-bordered table-hover">
+        <tr><td colspan="3" class="signature"><span class="signature-defs">public</span> <span class="signature-type">\app\controllers\JSON</span> <strong><a href="app-controllers-usercontroller.html#actionSignup()-detail">actionSignup</a></strong> ( )</td></tr>
+                                                <tr>
+                  <th class="param-name-col">return</th>
+                  <td class="param-type-col">\app\controllers\JSON</td>
+                  <td class="param-desc-col"><p>Ejemplo del resultado:</p>
+<pre><code class="hljs json">{
+    "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-string">"2"</span></span>,
+    "<span class="hljs-attribute">auth_key</span>": <span class="hljs-value"><span class="hljs-string">"XlCoZhZc6H0EGr-1Y1EnXA2r42V2dphR"</span></span>,
+    "<span class="hljs-attribute">password_hash</span>": <span class="hljs-value"><span class="hljs-string">"$2y$13$lQ/Ud77B178m/VjRWI71zecvD2ePI.7VVYoWul7x5A/qJHZoziuRO"</span></span>,
+    "<span class="hljs-attribute">password_reset_token</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
+    "<span class="hljs-attribute">email</span>": <span class="hljs-value"><span class="hljs-string">"hodsdl@aqcom.com"</span></span>,
+    "<span class="hljs-attribute">rol</span>": <span class="hljs-value"><span class="hljs-string">"2"</span></span>,
+    "<span class="hljs-attribute">access_token</span>": <span class="hljs-value"><span class="hljs-string">"Rz7ZMHJb3bOBUUFVuQoM_OW7JTM1-mvb"</span></span>,
+    "<span class="hljs-attribute">status</span>": <span class="hljs-value"><span class="hljs-string">"10"</span></span>,
+    "<span class="hljs-attribute">created_at</span>": <span class="hljs-value"><span class="hljs-string">"1563282716"</span></span>,
+    "<span class="hljs-attribute">updated_at</span>": <span class="hljs-value"><span class="hljs-string">"1563282716"</span></span>,
+}
+</code></pre>
+</td>
+                </tr>
+                                    </table>
+
+<!--	-->
+
+    <div class="detail-header h3" id="actionVendedorPerfil()-detail">
+        <a href="#" class="tool-link" title="go to top"><span class="glyphicon glyphicon-arrow-up"></span></a>
+        <a class="tool-link hash" href="app-controllers-usercontroller.html#actionVendedorPerfil()-detail" title="direct link to this method"><span class="glyphicon icon-hash"></span></a>
+        
+        actionVendedorPerfil()
+        <span class="detail-header-tag small">
+            public                                    method
+                    </span>
+    </div>
+
+    
+    <div class="doc-description">
+        <p><strong>Muestra el perfil del vendedor.</strong></p>
+
+        <p><code>Url</code>: /user/vendedor-perfil <br>
+<code>method</code>: get <br>
+<code>Content-Type</code>: application/json <br>
+<code>Autorization</code>: Bearer[access_token] <br>
+<code>body</code>: <br></p>
+
+            </div>
+
+    <table class="detail-table table table-striped table-bordered table-hover">
+        <tr><td colspan="3" class="signature"><span class="signature-defs">public</span> <span class="signature-type">\app\controllers\JSON</span> <strong><a href="app-controllers-usercontroller.html#actionVendedorPerfil()-detail">actionVendedorPerfil</a></strong> ( <span style="color: #0000BB">$id</span> )</td></tr>
+                                    <tr>
+                  <td class="param-name-col"><span style="color: #0000BB">$id</span></td>
+                  <td class="param-type-col"></td>
+                  <td class="param-desc-col"></td>
+                </tr>
+                                        <tr>
+                  <th class="param-name-col">return</th>
+                  <td class="param-type-col">\app\controllers\JSON</td>
+                  <td class="param-desc-col"><p>Ejemp lo del resultado :</p>
+<pre><code class="hljs json">{
+    "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">897</span></span>,
+    "<span class="hljs-attribute">email</span>": <span class="hljs-value"><span class="hljs-string">"juan@juan.com"</span></span>,
+    "<span class="hljs-attribute">nombre_completo</span>": <span class="hljs-value"><span class="hljs-string">"willa willa"</span></span>,
+    "<span class="hljs-attribute">ciudad</span>": <span class="hljs-value"><span class="hljs-string">"Cochabamba"</span></span>,
+    "<span class="hljs-attribute">telefono_celular</span>": <span class="hljs-value"><span class="hljs-string">"7543543"</span></span>,
+    "<span class="hljs-attribute">foto</span>": <span class="hljs-value"><span class="hljs-string">"https://api.cambalachebolivia.com/uploads/usuarios/fotoperfil/usuario_897190813031726.jpg"</span></span>,
+    "<span class="hljs-attribute">rating</span>": <span class="hljs-value"><span class="hljs-number">0</span>
+</span>}
+</code></pre>
+</td>
+                </tr>
+                                    </table>
+
+<!--	-->
+
+    <div class="detail-header h3" id="behaviors()-detail">
+        <a href="#" class="tool-link" title="go to top"><span class="glyphicon glyphicon-arrow-up"></span></a>
+        <a class="tool-link hash" href="app-controllers-usercontroller.html#behaviors()-detail" title="direct link to this method"><span class="glyphicon icon-hash"></span></a>
+        
+        behaviors()
+        <span class="detail-header-tag small">
+            public                                    method
+                    </span>
+    </div>
+
+    
+    <div class="doc-description">
+        <p><strong></strong></p>
+
+        
+            </div>
+
+    <table class="detail-table table table-striped table-bordered table-hover">
+        <tr><td colspan="3" class="signature"><span class="signature-defs">public</span> <span class="signature-type">void</span> <strong><a href="app-controllers-usercontroller.html#behaviors()-detail">behaviors</a></strong> ( )</td></tr>
+            </table>
+
+<!--	-->
+</div>
+        </div>
+</div>
+
+<script type="text/javascript">
+    /*<![CDATA[*/
+    $("a.toggle").on('click', function () {
+        var $this = $(this);
+        if ($this.hasClass('properties-hidden')) {
+            $this.text($this.text().replace(/Show/,'Hide'));
+            $this.parents(".summary").find(".inherited").show();
+            $this.removeClass('properties-hidden');
+        } else {
+            $this.text($this.text().replace(/Hide/,'Show'));
+            $this.parents(".summary").find(".inherited").hide();
+            $this.addClass('properties-hidden');
+        }
+
+        return false;
+    });
+    /*
+     $(".sourceCode a.show").toggle(function () {
+     $(this).text($(this).text().replace(/show/,'hide'));
+     $(this).parents(".sourceCode").find("div.code").show();
+     },function () {
+     $(this).text($(this).text().replace(/hide/,'show'));
+     $(this).parents(".sourceCode").find("div.code").hide();
+     });
+     $("a.sourceLink").click(function () {
+     $(this).attr('target','_blank');
+     });
+     */
+    /*]]>*/
+</script>
+
+
+</div>
+
+<footer class="footer">
+        <p class="pull-right"><small>Page generated on Thu, 17 Oct 2019 03:05:08 +0000</small></p>
+    Powered by <a href="http://www.yiiframework.com/" rel="external">Yii Framework</a></footer>
+
+<script>jQuery(function ($) {
+    var shiftWindow = function () { scrollBy(0, -50) };
+    if (location.hash) setTimeout(shiftWindow, 1);
+    window.addEventListener("hashchange", shiftWindow);
+var element = document.createElement("script");
+element.src = "./jssearch.index.js";
+document.body.appendChild(element);
+
+var searchBox = $('#searchbox');
+
+// search when typing in search field
+searchBox.on("keyup", function(event) {
+    var query = $(this).val();
+
+    if (query == '' || event.which == 27) {
+        $('#search-resultbox').hide();
+        return;
+    } else if (event.which == 13) {
+        var selectedLink = $('#search-resultbox a.selected');
+        if (selectedLink.length != 0) {
+            document.location = selectedLink.attr('href');
+            return;
+        }
+    } else if (event.which == 38 || event.which == 40) {
+        $('#search-resultbox').show();
+
+        var selected = $('#search-resultbox a.selected');
+        if (selected.length == 0) {
+            $('#search-results').find('a').first().addClass('selected');
+        } else {
+            var next;
+            if (event.which == 40) {
+                next = selected.parent().next().find('a').first();
+            } else {
+                next = selected.parent().prev().find('a').first();
+            }
+            if (next.length != 0) {
+                var resultbox = $('#search-results');
+                var position = next.position();
+
+//              TODO scrolling is buggy and jumps around
+//                resultbox.scrollTop(Math.floor(position.top));
+//                console.log(position.top);
+
+                selected.removeClass('selected');
+                next.addClass('selected');
+            }
+        }
+
+        return;
+    }
+    $('#search-resultbox').show();
+    $('#search-results').html('<li><span class="no-results">No results</span></li>');
+
+    var result = jssearch.search(query);
+
+    if (result.length > 0) {
+        var i = 0;
+        var resHtml = '';
+
+        for (var key in result) {
+            if (i++ > 20) {
+                break;
+            }
+            resHtml = resHtml +
+            '<li><a href="' + result[key].file.u.substr(3) +'"><span class="title">' + result[key].file.t + '</span>' +
+            '<span class="description">' + result[key].file.d + '</span></a></li>';
+        }
+        $('#search-results').html(resHtml);
+    }
+});
+
+// hide the search results on ESC
+$(document).on("keyup", function(event) { if (event.which == 27) { $('#search-resultbox').hide(); } });
+// hide search results on click to document
+$(document).bind('click', function (e) { $('#search-resultbox').hide(); });
+// except the following:
+searchBox.bind('click', function(e) { e.stopPropagation(); });
+$('#search-resultbox').bind('click', function(e) { e.stopPropagation(); });
+
+});</script></body>
+</html>

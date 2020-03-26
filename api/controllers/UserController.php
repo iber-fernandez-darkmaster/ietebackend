@@ -152,6 +152,8 @@ class UserController extends Controller
             'email'=>$usuario->email,
             'foto'=>$usuario->strFoto,
             'centro'=>$usuario->centro->numero_id,
+            'estado'=>$usuario->estado,
+
         ];
     }
     /**

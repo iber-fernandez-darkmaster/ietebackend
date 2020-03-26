@@ -48,4 +48,8 @@ class Materia extends \yii\db\ActiveRecord
     {
         return $this->hasMany(Examen::className(), ['materia_id' => 'id']);
     }
+    public function getHabilitaciones()
+    {
+        return $this->hasMany(Habilitaciones::className(), ['materia_id' => 'id']);
+    }
 }

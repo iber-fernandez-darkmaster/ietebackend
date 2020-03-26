@@ -147,6 +147,9 @@ class UserController extends Controller
                 $log->ip = \Yii::$app->getRequest()->getUserIP();
                 $log->creation_date= time();
                 $log->save();
+                if (\Yii::$app->user->can('Responsable Centro')){
+                	return $this->redirect(['/estudiante']);
+                }
                 return $this->goBack();
             }else{
                 Yii::$app->session->setFlash('danger', "El nombre de usuario o el password son incorrectos");

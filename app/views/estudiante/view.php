@@ -29,6 +29,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                 'label' => 'Centro',
                                 'attribute' => 'centro.numero_id',
                             ],
+                            'estado',
                             [
                                 'attribute' => 'foto',
                                 'value' => Yii::getAlias('@estudianteImgUrl') . '/' . $model->foto,

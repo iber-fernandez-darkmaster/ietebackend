@@ -16,8 +16,8 @@ return [
         // '@imagePath' => '@app/../uploads',
         '@imagePath' => 'uploads',
         '@imageUrl' => '/uploads',
-        '@images' => 'http://iete.test/uploads',
-        '@images1' => 'http://api.iete.test/uploads',
+        '@images' => 'http://ietebackend.test/uploads',
+        '@images1' => 'http://ietebackend.test/api/uploads',
     ],
     'components'=>[
         'db' => [

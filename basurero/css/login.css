@@ -1,0 +1,36 @@
+/* line 1, scss/login.scss */
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  height: 100vh;
+  background-color: #342f2b;
+  background: url(../images/login.jpg) no-repeat;
+  background-position: center; }
+
+/* line 13, scss/login.scss */
+.form-signin {
+  width: 357px;
+  height: auto;
+  padding: 15px;
+  margin: auto;
+  color: #999; }
+
+/* line 29, scss/login.scss */
+.form-control {
+  color: #999; }
+
+/* line 35, scss/login.scss */
+.form-group .checkbox label, .form-group .radio label, .form-group label {
+  color: #999 !important; }
+
+/* line 46, scss/login.scss */
+.navbar {
+  border: 0;
+  border-bottom: none;
+  padding: 10px 0; }
+
+/* line 51, scss/login.scss */
+.navbar.navbar-inverse {
+  background-color: transparent;
+  color: #fff; }

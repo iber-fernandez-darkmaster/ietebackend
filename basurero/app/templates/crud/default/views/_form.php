@@ -1,0 +1,49 @@
+<?php
+
+use yii\helpers\Inflector;
+use yii\helpers\StringHelper;
+
+/* @var $this yii\web\View */
+/* @var $generator yii\gii\generators\crud\Generator */
+
+/* @var $model \yii\db\ActiveRecord */
+$model = new $generator->modelClass();
+$safeAttributes = $model->safeAttributes();
+if (empty($safeAttributes)) {
+    $safeAttributes = $model->attributes();
+}
+
+echo "<?php\n";
+?>
+
+use yii\helpers\Html;
+use kartik\form\ActiveForm;
+use kartik\file\FileInput;
+use kartik\switchinput\SwitchInput;
+use kartik\date\DatePicker;
+
+/* @var $this yii\web\View */
+/* @var $model <?= ltrim($generator->modelClass, '\\') ?> */
+/* @var $form yii\widgets\ActiveForm */
+?>
+
+<div class="<?= Inflector::camel2id(StringHelper::basename($generator->modelClass)) ?>-form">
+
+    <?= "<?php " ?>$form = ActiveForm::begin(); ?>
+
+<?php foreach ($generator->getColumnNames() as $attribute) {
+    if (in_array($attribute, $safeAttributes)) {
+        echo "    <?= " . $generator->generateActiveField($attribute) . " ?>\n\n";
+    }
+} ?>
+    <div class="form-group text-right">
+        <?= "<?=" ?> Html::a(<?=" \"<i class='material-icons'>clear</i> \".".$generator->generateString('Cerrar')?>, ['index'], [
+            'class' => 'btn btn-default',
+            'title'=>'Cerrar',
+        ]) ?>
+        <?= "<?= " ?>Html::submitButton(<?= " \"<i class='material-icons'>save</i> \".".$generator->generateString('Guardar') ?>, ['class' => $model->isNewRecord?'btn btn-success':'btn btn-warning']) ?>
+    </div>
+
+    <?= "<?php " ?>ActiveForm::end(); ?>
+
+</div>

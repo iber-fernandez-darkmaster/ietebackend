@@ -1,0 +1,28 @@
+{
+    "remotePath": "./",
+    "host": "ftp.cambalachebolivia.com",
+    "username": "api@api.cambalachebolivia.com",
+    "password": "Mds95d(HJ)nZ17",
+    "port": 21,
+    "secure": false,
+    "protocol": "ftp",
+    "uploadOnSave": false,
+    "passive": false,
+    "debug": false,
+    "privateKeyPath": null,
+    "passphrase": null,
+    "agent": null,
+    "allow": [],
+    "ignore": [
+        "\\.vscode",
+        "\\.git",
+        "\\uploads",
+        "\\vendor"
+    ],
+    "generatedFiles": {
+        "extensionsToInclude": [
+            ""
+        ],
+        "path": ""
+    }
+}

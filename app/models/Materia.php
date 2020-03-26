@@ -9,6 +9,7 @@ use Yii;
  *
  * @property int $id
  * @property string $nombre
+ * @property string $estado
  */
 class Materia extends \yii\db\ActiveRecord
 {
@@ -26,7 +27,9 @@ class Materia extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
+            [['nombre', 'estado'], 'required'],
             [['nombre'], 'string', 'max' => 100],
+            [['estado'], 'string'],
         ];
     }
 
@@ -38,6 +41,7 @@ class Materia extends \yii\db\ActiveRecord
         return [
             'id' => 'ID',
             'nombre' => 'Nombre',
+            'estado' => 'Estado',
         ];
     }
 
@@ -47,5 +51,9 @@ class Materia extends \yii\db\ActiveRecord
     public function getExamenes()
     {
         return $this->hasMany(Examen::className(), ['materia_id' => 'id']);
+    }
+    public function getHabilitaciones()
+    {
+        return $this->hasMany(Habilitaciones::className(), ['materia_id' => 'id']);
     }
 }

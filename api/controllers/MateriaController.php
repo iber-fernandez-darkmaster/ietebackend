@@ -212,7 +212,7 @@ class MateriaController extends Controller
     /**
      * Registrar respuestas de un examen.
      * 
-     * `Url`: /materia/register-respuestas?estudiante=[id del estudiante] <br>
+     * `Url`: /materia/register-respuestas?examen=[id del examen]&estudiante=[id del estudiante] <br>
      * `method`: post <br>
      * `Content-Type`: application/json <br>
      * `Autorization`: none <br>
@@ -220,11 +220,12 @@ class MateriaController extends Controller
      *     {
      *         "respuestas":[
      *              {
-     *                  "pregunta_id": 1,  // integer id de la pregunta
+     *                  "pregunta_id": 1,  // integer
      *                  "respuesta":"on", // integer on or off where on is 1 and off is 0
      *              },
      *         ]
      *     }
+     * @param int $examen id del examen
      * @param int $estudiante id del estudiante
      * @return JSON Ejemplo del resultado:
      *      [
@@ -271,7 +272,6 @@ class MateriaController extends Controller
             if (!$mdExamen){
                 throw new NotFoundHttpException("El examen no existe");
             }
-
             $idsRespuestas = [];
 
             foreach ($respuestas as $key => $item) {

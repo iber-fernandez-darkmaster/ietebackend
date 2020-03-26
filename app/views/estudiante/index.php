@@ -3,8 +3,8 @@
 use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\helpers\ArrayHelper;
-
 use kartik\grid\GridView;
+use app\models\Centro;
 
 /* @var $this yii\web\View */
 /* @var $searchModel app\models\EstudianteSearch */
@@ -45,6 +45,13 @@ $this->params['breadcrumbs'][] = $this->title;
                                 'nombre_completo',
                                 'dni',
                                 'email:email',
+                                [
+                                    'attribute'=>'centro_id',
+                                    'value'=>'centro.numero_id',//auspiciador va a buscar evento (id) y con ese id el nombre de evento
+                                    'filter' => Html::activeDropDownList($searchModel, 'centro_id', ArrayHelper::map(Centro::find()->all(), 'id', 'numero_id'), ['class' => 'form-control',
+                                        'prompt' => 'Seleccione el centro ...', 'change' => '',]
+                                    ),
+                                ],
                                 //'centro_id',
 
                                 [
